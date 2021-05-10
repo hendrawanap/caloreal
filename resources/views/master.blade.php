@@ -9,7 +9,7 @@
   <body>
     <nav class="sticky top-0 py-4 bg-ternary">
       <div class="container mx-auto flex justify-between items-center">
-        <a>Bawuk</a>
+        <a>Logo</a>
         <div class="flex">
           <div class="border-2 rounded-2xl border-black mr-2 px-9 py-2 text-sm">Log In</div>
           <div class="border-2 rounded-2xl border-black bg-primary px-9 py-2 text-white text-sm">Sign Up</div>
