@@ -1,8 +1,8 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('title', 'Daking')
 
-@section('container')
+@section('content')
 <div class="bg-ternary">
   <div class="container mx-auto pt-20 pb-44">
     <h1 class="text-4xl font-bold mb-2 text-primary">Hitung Indeks Massa Tubuh</h1>
