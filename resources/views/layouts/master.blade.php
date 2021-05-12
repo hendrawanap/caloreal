@@ -8,7 +8,7 @@
     <title>@yield('title')</title>
 </head>
 
-<body>
+<body class="flex flex-col min-h-screen">
     <nav class="sticky top-0 py-4 bg-ternary">
         <div class="container mx-auto flex justify-between items-center">
             <a>Logo</a>
@@ -53,8 +53,12 @@
             </ul>
         </div>
     </nav>
-    @yield('content')
-    <footer class="bg-primary py-6">
+    
+    <main class="flex-grow">
+        @yield('content')
+    </main>
+
+    <footer class="static bottom-0 bg-primary py-6">
         <div class="container mx-auto text-white text-center text-sm">
             2021 Made by Daking🦆
         </div>
