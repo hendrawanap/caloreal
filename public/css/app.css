@@ -555,8 +555,8 @@ video {
 
 .container{
   width: 100%;
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding-right: 4rem;
+  padding-left: 4rem;
 }
 
 @media (min-width: 640px){
@@ -32370,8 +32370,8 @@ video {
 @media (min-width: 640px){
   .sm\:container{
     width: 100%;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
   }
 
   @media (min-width: 640px){
@@ -64015,8 +64015,8 @@ video {
 @media (min-width: 768px){
   .md\:container{
     width: 100%;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
   }
 
   @media (min-width: 640px){
@@ -95660,8 +95660,8 @@ video {
 @media (min-width: 1024px){
   .lg\:container{
     width: 100%;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
   }
 
   @media (min-width: 640px){
@@ -127305,8 +127305,8 @@ video {
 @media (min-width: 1280px){
   .xl\:container{
     width: 100%;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
   }
 
   @media (min-width: 640px){
@@ -158950,8 +158950,8 @@ video {
 @media (min-width: 1536px){
   .\32xl\:container{
     width: 100%;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
   }
 
   @media (min-width: 640px){
