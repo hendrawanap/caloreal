@@ -22,6 +22,7 @@
                 <h1 class="text-xl font-semibold mt-4">Indeks Massa Tubuh Kamu</h1>
                 <span class="text-lg mt-4">{{ $total ?? '' }}</span>
                 <span class="text-lg mt-2">{{ $bmi->category ?? '' }}</span>
+                <span class="text-lg mt-2">{{ $bmi->description ?? '' }}</span>
             </div>
         </div>
     </div>
