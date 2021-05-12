@@ -13,6 +13,11 @@ module.exports = {
         'awaw': ['Goblin One']
       }
     },
+    container: {
+      padding: {
+        DEFAULT: '2rem'
+      }
+    }
   },
   variants: {
     extend: {},
