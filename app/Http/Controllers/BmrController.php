@@ -16,9 +16,9 @@ class BmrController extends Controller
     {
         $request->validate([
             'sex' => 'required',
-            'age' => 'required|max:3',
-            'height' => 'required|max:3',
-            'weight' => 'required|max:3',
+            'age' => 'required|integer|max:120',
+            'height' => 'required|integer|max:200',
+            'weight' => 'required|integer|max:200',
         ]);
         if (auth()->check()) {
             $bmr = Bmr::create([
