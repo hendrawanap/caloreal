@@ -11,7 +11,7 @@
 <body class="flex flex-col min-h-screen">
     <nav class="sticky top-0 py-4 bg-ternary">
         <div class="container mx-auto flex justify-between items-center">
-            <a>Logo</a>
+            <a href="{{ route('home') }}">Logo</a>
             <ul class="flex">
                 @guest
                     @if (Route::has('login'))
