@@ -13,7 +13,7 @@ class CreateFoodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('foods_table', function (Blueprint $table) {
+        Schema::create('foods', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('foodname');

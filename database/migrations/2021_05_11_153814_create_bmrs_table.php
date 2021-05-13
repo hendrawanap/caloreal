@@ -13,7 +13,7 @@ class CreateBmrsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bmrs_table', function (Blueprint $table) {
+        Schema::create('bmrs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->foreignId('user_id');
@@ -21,7 +21,7 @@ class CreateBmrsTable extends Migration
             $table->integer('height');
             $table->integer('age');
             $table->string('sex');
-            $table->integer('user_calorie');
+            $table->integer('user_calorie')->nullable();
         });
     }
 
