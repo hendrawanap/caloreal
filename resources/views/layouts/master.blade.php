@@ -9,7 +9,7 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <nav class="sticky top-0 py-4 bg-ternary">
+    <nav class="fixed top-0 left-0 right-0 py-4 z-10">
         <div class="container mx-auto flex justify-between items-center">
             <a href="{{ route('home') }}">Logo</a>
             <ul class="flex">
