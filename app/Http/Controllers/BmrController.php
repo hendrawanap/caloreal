@@ -21,13 +21,17 @@ class BmrController extends Controller
             'weight' => 'required|integer|max:200',
         ]);
         if (auth()->check()) {
-            $bmr = Bmr::create([
-                'user_id' => auth()->user()->id,
-                'sex' => $request->sex,
-                'age' => $request->age,
-                'height' => $request->height,
-                'weight' => $request->weight,
-            ]);
+            $bmr = Bmr::updateOrCreate(
+                [
+                    'user_id' => auth()->user()->id
+                ],
+                [
+                    'user_id' => auth()->user()->id,
+                    'sex' => $request->sex,
+                    'age' => $request->age,
+                    'height' => $request->height,
+                    'weight' => $request->weight,
+                ]);
         }
 
 
