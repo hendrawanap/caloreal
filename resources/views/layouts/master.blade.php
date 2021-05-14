@@ -17,7 +17,7 @@
                     @if (Route::has('login'))
                         <li>
                             <a href="{{ route('login') }}">
-                                <div class="border-2 rounded-2xl border-black mr-2 px-9 py-2 text-sm">
+                                <div class="border-2 rounded-2xl border-primary mr-2 px-9 py-2 text-sm">
                                     Log In
                                 </div>
                             </a>
@@ -27,7 +27,7 @@
                     @if (Route::has('register'))
                         <li>
                             <a href="{{ route('register') }}">
-                                <div class="border-2 rounded-2xl border-black bg-primary px-9 py-2 text-white text-sm">
+                                <div class="border-2 rounded-2xl border-primary bg-primary px-9 py-2 text-white text-sm">
                                     Sign Up
                                 </div>
                             </a>
@@ -43,7 +43,7 @@
                             <form action="{{ route('logout') }}" method="POST" class="ml-2">
                                 @csrf
                                 <button href="{{ route('logout') }}"
-                                    class="border-2 rounded-2xl border-black bg-primary px-9 py-2 text-white text-sm" type="submit">
+                                    class="border-2 rounded-2xl border-primary bg-primary px-9 py-2 text-white text-sm" type="submit">
                                     Log Out
                                 </button>
                             </form>

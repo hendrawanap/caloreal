@@ -1,47 +1,89 @@
 @extends('layouts.master')
 
-@section('BMI', 'Daking')
+@section('title', 'Daking | Kalkulator Indeks Massa Tubuh')
 
 @section('content')
-    <div class="container flex">
-        <div class="flex-1 mt-10 mr-10">
-            <div class="bg-ternary p-10 rounded-xl">
+<div class="bg-ternary relative pt-40">
+  <div class="container mx-auto h-72">
+    <h1 class="relative z-10 text-5xl font-semibold mb-3 text-primary">Indeks Massa Tubuh</h1>
+    <p class="text-primary text-lg max-w-xl">
+      Indeks Massa Tubuh (IMT) adalah nilai ukur untuk mengetahui status gizi seseorang berdasarkan berat dan tinggi badannya.
+    </p>
+  </div>
+  <img src="{{ asset('img/Image-BMI.png') }}" alt="alt" class="absolute bottom-0 right-0">
+</div>
+    <div class="container mx-auto pb-10 flex">
+        <div class="flex-1 mt-10 mr-10 max-w-md">
+          <form action="{{ route('bmr.store') }}" method="POST" class="flex flex-col">
+              @csrf
+              <div class="text-primary font-semibold text-lg mb-3">Jenis Kelamin</div>
+              <div class="flex text-white">
+                  <label for="male" class="pr-4">
+                      <div class="flex w-32 h-32 bg-primary items-center justify-center">Pria</div>
+                      <input
+                        class="w-full py-2 px-4 rounded-xl border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
+                        type="radio"
+                        id="male"
+                        name="sex"
+                        value="male"
+                        @if (old('sex')) checked @endif
+                      >
+                  </label>
 
-                <form action="{{ route('bmr.store') }}" method="POST" class="flex flex-col">
-                    @csrf
-                    <div class="flex justify-around text-white">
-                        <label for="male">
-                            <div class="flex w-32 h-32 bg-primary items-center justify-center">Male</div>
-                            <input type="radio" id="male" name="sex" value="male" @if (old('sex')) checked @endif>
-                        </label>
 
+                  <label for="female">
+                      <div class="checked:bg-white flex w-32 h-32 bg-primary items-center justify-center">Wanita</div>
+                      <input
+                        class="w-full py-2 px-4 rounded-xl border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
+                        type="radio"
+                        id="female"
+                        name="sex"
+                        value="female"
+                        @if (old('sex')) checked @endif
+                      >
+                  </label>
+              </div>
 
-                        <label for="female">
-                            <div class="checked:bg-white flex w-32 h-32 bg-primary items-center justify-center">Female</div>
-                            <input type="radio" id="female" name="sex" value="female" @if (old('sex')) checked @endif>
-                        </label>
-                    </div>
+              @error('sex') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
 
-                    @error('sex') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
+              <label class="text-primary font-semibold text-lg mt-8 mb-3" for="age">Usia</label>
+              <input
+                class="w-full py-2 px-4 rounded-xl border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
+                type="text"
+                name="age"
+                id="age"
+                value="{{ old('age') }}"
+              >
+              @error('age') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
 
-                    <label for="age">Usia</label>
-                    <input type="text" name="age" id="age" class="p-2 rounded-lg" value="{{ old('age') }}">
-                    @error('age') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
+              <label class="text-primary font-semibold text-lg mt-8 mb-3" for="height">Tinggi</label>
+              <input
+                class="w-full py-2 px-4 rounded-xl border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
+                type="text"
+                name="height"
+                id="height"
+                value="{{ old('height') }}"
+              >
+              @error('height') <span class=" text-sm text-red-500">{{ $message }}</span> @enderror
 
-                    <label for="height">Tinggi</label>
-                    <input type="text" name="height" id="height" class="p-2 rounded-lg" value="{{ old('height') }}"">
-                                        @error('height') <span class=" text-sm text-red-500">{{ $message }}</span>
-                    @enderror
+              <label class="text-primary font-semibold text-lg mt-8 mb-3" for="weight">Berat Badan</label>
+              <input
+                class="w-full py-2 px-4 rounded-xl border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
+                type="text"
+                name="weight"
+                id="weight"
+                value="{{ old('weight') }}"
+              >
+              @error('weight') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
 
-                    <label for="weight">Berat Badan</label>
-                    <input type="text" name="weight" id="weight" class="p-2 rounded-lg" value="{{ old('weight') }}">
-                    @error('weight') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
+              <input
+                type="submit"
+                name="submit"
+                value="Hitung IMT"
+                class="border-2 rounded-2xl border-primary bg-primary mt-4 px-9 py-2 text-white text-sm mt-10 w-min"
+              >
 
-                    <input type="submit" name="submit" value="Hitung"
-                        class="border-2 rounded-2xl border-black bg-primary mt-4 px-9 py-2 text-white text-sm">
-
-                </form>
-            </div>
+          </form>
         </div>
 
         <div class="flex-1 mt-10">
