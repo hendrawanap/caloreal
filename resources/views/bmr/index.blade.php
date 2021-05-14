@@ -4,22 +4,22 @@
 
 @section('content')
 <div class="bg-ternary relative pt-40">
-  <div class="container mx-auto h-72">
-    <h1 class="relative z-10 text-5xl font-semibold mb-3 text-primary">Indeks Massa Tubuh</h1>
-    <p class="relative z-10 text-primary text-lg max-w-xl">
+  <div class="container mx-auto h-96 sm:h-72">
+    <h1 class="relative z-10 text-2xl font-semibold mb-3 text-primary sm:text-5xl">Indeks Massa Tubuh</h1>
+    <p class="relative z-10 text-primary max-w-xl sm:text-lg">
       Indeks Massa Tubuh (IMT) adalah nilai ukur untuk mengetahui status gizi seseorang berdasarkan berat dan tinggi badannya.
     </p>
   </div>
   <img src="{{ asset('img/Image-BMI.png') }}" alt="alt" class="absolute bottom-0 right-0">
 </div>
 <div class="container mx-auto pt-10 pb-10 flex flex-wrap lg:flex-nowrap justify-between">
-    <div class="mr-10 w-full lg:max-w-lg">
+    <div class="mr-10 w-full lg:max-w-sm xl:max-w-lg">
       <form class="flex flex-col w-full" action="{{ route('bmr.store') }}" method="POST" class="flex flex-col">
           @csrf
           <div class="text-primary font-semibold text-lg mb-3">Jenis Kelamin</div>
-          <div class="flex text-white">
-              <label for="male" class="pr-4">
-                  <div class="flex flex-col py-2 px-10 bg-gray-50 rounded-xl border border-primary items-center text-primary justify-center">
+          <div class="flex flex-shrink-0 text-white">
+              <label for="male" class="mr-4">
+                  <div class="flex flex-col py-2 px-2 bg-gray-50 rounded-xl border border-primary items-center text-primary justify-center sm:px-10">
                     <img src="{{ asset('img/boy.png') }}" alt="alt">
                     Pria
                   </div>
@@ -34,7 +34,7 @@
               </label>
 
               <label for="female">
-                <div class="flex flex-col py-2 px-10 bg-gray-50 rounded-xl border border-primary items-center text-primary justify-center">
+                <div class="flex flex-col py-2 px-2 bg-gray-50 rounded-xl border border-primary items-center text-primary justify-center sm:px-10">
                   <img src="{{ asset('img/girl.png') }}" alt="alt">
                   Wanita
                 </div>
@@ -94,28 +94,28 @@
       </form>
     </div>
 
-    <div class="flex flex-shrink-0">
-        <div class="flex flex-1 flex-col bg-gray-50 px-16 py-10 rounded-xl justify-center items-center max-w-xl shadow-lg">
-            @isset($bmi)
-                <h1 class="text-xl font-semibold mt-4 text-primary">Hasil Perhitungan IMT</h1>
-                <div class="flex mt-6 w-40 h-40 rounded-full items-center justify-center bg-ternary">
-                  <div class="flex w-32 h-32 rounded-full items-center justify-center bg-primary">
-                    <div class="text-4xl text-white">{{ round($bmi['value'], 2) }}</div>
-                  </div>
-                </div>
-                <span class="text-lg mt-4 font-semibold text-primary">{{ $bmi['category'] }}</span>
-                <p class="mt-4 text-primary">
-                    Untuk menjaga kesehatan badan, Anda perlu mengetahui terlebih dulu berapa banyak kalori yang dibutuhkan
-                    tubuh per harinya. Agar tubuh mendapatkan sumber energi yang maksimal untuk beraktivitas.
-                </p>
-                <a
-                  href="#"
-                  class="w-full text-center border-2 rounded-xl border-black bg-primary px-9 py-2 mt-2 text-white"
-                >
-                  Atur Asupan Kalorimu
-                </a>
-            @endisset
+    <div class="flex flex-shrink mt-4 lg:max-w-md mt-0 xl:max-w-2xl">
+      @isset($bmi)
+      <div class="flex flex-col bg-gray-50 px-16 py-10 rounded-xl justify-center items-center lg:max-w-xl shadow-lg">
+        <h1 class="text-xl font-semibold mt-4 text-primary">Hasil Perhitungan IMT</h1>
+        <div class="flex mt-6 w-40 h-40 rounded-full items-center justify-center bg-ternary">
+          <div class="flex w-32 h-32 rounded-full items-center justify-center bg-primary">
+            <div class="text-4xl text-white">{{ round($bmi['value'], 2) }}</div>
+          </div>
         </div>
+        <span class="text-lg mt-4 font-semibold text-primary">{{ $bmi['category'] }}</span>
+        <p class="mt-4 text-primary">
+            Untuk menjaga kesehatan badan, Anda perlu mengetahui terlebih dulu berapa banyak kalori yang dibutuhkan
+            tubuh per harinya. Agar tubuh mendapatkan sumber energi yang maksimal untuk beraktivitas.
+        </p>
+        <a
+          href="#"
+          class="w-full text-center border-2 rounded-xl border-black bg-primary px-9 py-2 mt-2 text-white"
+        >
+          Atur Asupan Kalorimu
+        </a>
+      </div>
+      @endisset
     </div>
 </div>
 @endsection
