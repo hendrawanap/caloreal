@@ -1,8 +1,9 @@
-# [nama program]
+# Caloreal
 
-## About [Nama Program]
+## About Caloreal
 
-[Nama Program] ini merupakan program peghintung indeks massa tubuh dan asupan kalori harian.
+Caloreal merupakan program peghintung indeks massa tubuh dan asupan kalori harian.
+Caloreal dibangun dengan menggunakan framework Laravel dan Tailwind CSS.
 
 ## Pengunduhan 
 
@@ -14,7 +15,7 @@ git clone https://github.com/hendrawanap/daking.git
 
 - Melalui download `.zip`. Kemudian extract file
 
-## penginstallan
+## Penginstallan
 
 1. Jalankan database mysql dan buatlah database dengan `daking` (nama database dapat diganti).
 
