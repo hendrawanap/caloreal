@@ -20,23 +20,23 @@ $features = [
 @endphp
 
 @section('content')
-<div class="bg-ternary relative pt-40">
-  <div class="container mx-auto h-96">
-    <h1 class="relative z-10 text-5xl font-semibold mb-2 text-primary">Hitung Indeks Massa Tubuh</h1>
-    <h1 class="relative z-10 text-5xl font-semibold mb-10 text-primary">Asupan Kalori Harian</h1>
-    <a href="{{ route('bmr.index') }}" class="relative z-10 border-2 rounded-xl border-black bg-primary px-9 py-2 text-white text-lg">Hitung Sekarang</a>
+<div class="bg-ternary relative md:pt-40">
+  <img src="{{ asset('img/heading-1.png') }}" alt="alt" class="pt-40 pb-10 px-10 md:max-h-96 lg:max-h-full md:absolute md:bottom-0 md:right-0 md:p-0">
+  <div class="container mx-auto h-96 flex flex-col items-center md:block">
+    <h1 class="relative z-20 text-2xl font-bold mb-2 text-center md:text-left text-primary tracking-wide sm:text-3xl md:text-4xl lg:text-5xl sm:font-semibold">Hitung Indeks Massa Tubuh</h1>
+    <h1 class="relative z-20 text-2xl font-bold mb-10 text-center md:text-left text-primary tracking-wide sm:text-3xl md:text-4xl lg:text-5xl sm:font-semibold">Asupan Kalori Harian</h1>
+    <a href="{{ route('bmr.index') }}" class="relative z-20 border rounded-2xl border-primary bg-primary px-9 py-3 text-white text tracking-wider">Hitung Sekarang</a>
   </div>
-  <img src="{{ asset('img/heading-1.png') }}" alt="alt" class="absolute bottom-0 right-0">
-  <img src="{{ asset('img/Vector-1.png') }}" alt="alt" class="absolute z-10 bottom-0 left-0">
-  <img src="{{ asset('img/Vector-2.png') }}" alt="alt" class="absolute bottom-0 left-0">
+  <img src="{{ asset('img/Vector-1.png') }}" alt="alt" class="hidden absolute z-10 bottom-0 left-0 md:block">
+  <img src="{{ asset('img/Vector-2.png') }}" alt="alt" class="hidden absolute bottom-0 left-0 md:block">
 </div>
-<div class="container mt-10 mb-24 mx-auto max-w-6xl">
-  <h1 class="text-5xl font-semibold text-center text-primary mb-10">Hidup Sehat Dari Sekarang</h1>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-48 gap-y-10">
+<div class="container mt-16 mb-24 mx-auto max-w-6xl sm:px-24">
+  <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold sm:font-semibold text-center text-primary mb-12">Hidup Sehat Dari Sekarang</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-16 md:gap-x-32 lg:gap-x-48 gap-y-10">
     @foreach ($features as $feature)
       <div class="flex flex-col items-center">
-        <img class="mb-10 w-40 h-40" src="{{ asset($feature['src']) }}">
-        <h5 class="text-xl font-semibold mb-2 text-primary">{{ $feature['title'] }}</h5>
+        <img class="w-40 h-40" src="{{ asset($feature['src']) }}">
+        <h5 class="text-lg md:text-xl font-semibold mt-4 mb-2 text-primary text-center">{{ $feature['title'] }}</h5>
         <p class="text-center text-primary">
           {{ $feature['content'] }}
         </p>

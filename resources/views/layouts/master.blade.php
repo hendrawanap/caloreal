@@ -9,7 +9,7 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <nav class="fixed top-0 left-0 right-0 py-4 z-10">
+    <nav class="fixed top-0 left-0 right-0 py-4 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <a href="{{ route('home') }}">Logo</a>
             <ul class="flex">
@@ -17,7 +17,7 @@
                     @if (Route::has('login'))
                         <li>
                             <a href="{{ route('login') }}">
-                                <div class="border-2 rounded-2xl border-primary mr-2 px-9 py-2 text-sm">
+                                <div class="border rounded-2xl border-primary mr-2 px-9 py-2 text-sm">
                                     Log In
                                 </div>
                             </a>
@@ -25,9 +25,9 @@
                     @endif
 
                     @if (Route::has('register'))
-                        <li>
+                        <li class="hidden sm:inline">
                             <a href="{{ route('register') }}">
-                                <div class="border-2 rounded-2xl border-primary bg-primary px-9 py-2 text-white text-sm">
+                                <div class="border rounded-2xl border-primary bg-primary px-9 py-2 text-white text-sm">
                                     Sign Up
                                 </div>
                             </a>
@@ -36,7 +36,7 @@
                 @else
                     <li>
                         <div class="flex items-center">
-                            <a href="#">
+                            <a href="#" class="mr-2">
                                 {{ Auth::user()->name }}
                             </a>
 
@@ -59,8 +59,8 @@
     </main>
 
     <footer class="static bottom-0 bg-primary py-6">
-        <div class="container mx-auto text-white text-center text-sm">
-            2021 Made by Daking🦆
+        <div class="container mx-auto text-white text-center text-sm font-normal">
+            2021 Made by Daking 🦆
         </div>
     </footer>
 </body>
