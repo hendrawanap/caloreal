@@ -11,7 +11,7 @@ class BmrForm extends Component
     public $age;
     public $height;
     public $weight;
-    
+
     public function store()
     {
         $bmr = null;
@@ -34,13 +34,26 @@ class BmrForm extends Component
                     'age' => $this->age,
                     'height' => $this->height,
                     'weight' => $this->weight,
-                ]);
+                ]
+            );
+        } else {
+            $bmr = Bmr::updateOrCreate(
+                [
+                    'user_id' => 0
+                ],
+                [
+                    'user_id' => 0,
+                    'sex' => $this->sex,
+                    'age' => $this->age,
+                    'height' => $this->height,
+                    'weight' => $this->weight,
+                ]
+            );
         }
 
         $this->resetInput();
 
         $this->emit('bmrSaved', $bmr);
-
     }
 
     private function resetInput()
@@ -51,8 +64,8 @@ class BmrForm extends Component
         $this->weight = null;
     }
 
-    
-    
+
+
     public function render()
     {
         return view('livewire.bmr-form');
