@@ -37,18 +37,10 @@ class BmrForm extends Component
                 ]
             );
         } else {
-            $bmr = Bmr::updateOrCreate(
-                [
-                    'user_id' => 0
-                ],
-                [
-                    'user_id' => 0,
-                    'sex' => $this->sex,
-                    'age' => $this->age,
-                    'height' => $this->height,
-                    'weight' => $this->weight,
-                ]
-            );
+            $bmr = [
+                'height' => $this->height,
+                'weight' => $this->weight
+            ];
         }
 
         $this->resetInput();
