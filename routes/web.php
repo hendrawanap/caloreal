@@ -15,4 +15,3 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/bmr', [BmrController::class, 'index'])->name('bmr.index');
-Route::post('/bmr', [BmrController::class, 'store'])->name('bmr.store');

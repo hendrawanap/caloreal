@@ -1,5 +1,5 @@
 <div>
-  <form wire:submit.prevent="store" class="flex flex-col w-full" action="{{ route('bmr.store') }}" method="POST" class="flex flex-col">
+  <form wire:submit.prevent="store" class="flex flex-col w-full"  method="POST" class="flex flex-col">
       @csrf
       <div class="text-primary font-semibold text-lg mb-3">Jenis Kelamin</div>
       <div class="flex flex-shrink-0 text-white">
