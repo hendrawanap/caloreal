@@ -64,6 +64,7 @@
             2021 Made by Daking 🦆
         </div>
     </footer>
+    @livewireScripts()
     <script>
       window.onscroll = function() {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -73,7 +74,6 @@
         }
       }
     </script>
-    @livewireScripts()
 </body>
 
 </html>

@@ -1,20 +1,23 @@
 <div>
     @isset($bmi)
-    <div class="flex flex-col bg-gray-50 px-16 py-10 rounded-xl justify-center items-center lg:max-w-xl shadow-lg">
-        <h1 class="text-xl font-semibold mt-4 text-primary">Hasil Perhitungan IMT</h1>
-        <div class="flex mt-6 w-40 h-40 rounded-full items-center justify-center bg-ternary">
-            <div class="flex w-32 h-32 rounded-full items-center justify-center bg-primary">
-                <div class="text-4xl text-white">{{ round($bmi['value'], 2) }}</div>
-            </div>
+    <div class="flex flex-col bg-gray-50 px-8 sm:px-16 py-5 sm:py-10 rounded-xl justify-center items-center lg:max-w-xl shadow-lg">
+      <h1 class="text-xl font-semibold mt-4 text-primary text-center">Hasil Perhitungan IMT</h1>
+      <div class="flex mt-6 w-40 h-40 rounded-full items-center justify-center bg-ternary">
+        <div class="flex w-32 h-32 rounded-full items-center justify-center bg-primary">
+          <div class="text-4xl text-white">{{ round($bmi['value'], 2) }}</div>
         </div>
-        <span class="text-lg mt-4 font-semibold text-primary">{{ $bmi['category'] }}</span>
-        <p class="mt-4 text-primary">
-            Untuk menjaga kesehatan badan, Anda perlu mengetahui terlebih dulu berapa banyak kalori yang dibutuhkan
-            tubuh per harinya. Agar tubuh mendapatkan sumber energi yang maksimal untuk beraktivitas.
-        </p>
-        <a href="#" class="w-full text-center border-2 rounded-xl border-black bg-primary px-9 py-2 mt-2 text-white">
-            Atur Asupan Kalorimu
-        </a>
+      </div>
+      <span class="text-lg mt-4 font-semibold text-primary">{{ $bmi['category'] }}</span>
+      <p class="mt-4 text-primary">
+          Untuk menjaga kesehatan badan, Anda perlu mengetahui terlebih dulu berapa banyak kalori yang dibutuhkan
+          tubuh per harinya. Agar tubuh mendapatkan sumber energi yang maksimal untuk beraktivitas.
+      </p>
+      <a
+        href="#"
+        class="w-full text-center border rounded-xl border-black bg-primary px-3 sm:px-9 py-2 mt-2 text-white"
+      >
+        Atur Asupan Kalorimu
+      </a>
     </div>
     @endisset
 </div>

@@ -22,4 +22,5 @@
             @livewire('bmi-result')
         </div>
     </div>
+</div>
 @endsection
