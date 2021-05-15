@@ -9,7 +9,7 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <nav class="fixed top-0 left-0 right-0 py-4 z-50">
+    <nav class="fixed top-0 left-0 right-0 py-4 z-50 transition duration-300" id="nav-bar">
         <div class="container mx-auto flex justify-between items-center">
             <a href="{{ route('home') }}">Logo</a>
             <ul class="flex">
@@ -63,6 +63,15 @@
             2021 Made by Daking 🦆
         </div>
     </footer>
+    <script>
+      window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("nav-bar").style.backgroundColor = "#E9FCFD";
+        } else {
+          document.getElementById("nav-bar").style.backgroundColor = "transparent";
+        }
+      }
+    </script>
 </body>
 
 </html>
