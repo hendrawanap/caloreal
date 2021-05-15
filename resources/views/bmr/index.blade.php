@@ -3,14 +3,14 @@
 @section('title', 'Daking | Kalkulator Indeks Massa Tubuh')
 
 @section('content')
-<div class="bg-ternary relative pt-40">
-  <div class="container mx-auto h-96 sm:h-72">
-    <h1 class="relative z-10 text-2xl font-semibold mb-3 text-primary sm:text-5xl">Indeks Massa Tubuh</h1>
-    <p class="relative z-10 text-primary max-w-xl sm:text-lg">
+<div class="bg-ternary relative md:pt-40">
+  <img src="{{ asset('img/Image-BMI.png') }}" alt="alt" class="pt-40 pb-10 px-10 md:max-h-72 lg:max-h-full md:absolute md:bottom-0 md:right-0 md:p-0">
+  <div class="container mx-auto h-48 md:h-96 flex flex-col items-center md:block sm:h-72">
+    <h1 class="relative z-20 text-2xl font-bold mb-2 text-center md:text-left text-primary tracking-wide sm:text-3xl md:text-4xl lg:text-5xl sm:font-semibold">Indeks Massa Tubuh</h1>
+    <p class="relative z-20 text-primary max-w-md xl:max-w-xl text-center md:text-left sm:text-lg">
       Indeks Massa Tubuh (IMT) adalah nilai ukur untuk mengetahui status gizi seseorang berdasarkan berat dan tinggi badannya.
     </p>
   </div>
-  <img src="{{ asset('img/Image-BMI.png') }}" alt="alt" class="absolute bottom-0 right-0">
 </div>
 <div class="container mx-auto pt-10 pb-10 flex flex-wrap lg:flex-nowrap justify-between">
     <div class="mr-10 w-full lg:max-w-sm xl:max-w-lg">
@@ -96,8 +96,8 @@
 
     <div class="flex flex-shrink mt-4 lg:max-w-md mt-0 xl:max-w-2xl">
       @isset($bmi)
-      <div class="flex flex-col bg-gray-50 px-16 py-10 rounded-xl justify-center items-center lg:max-w-xl shadow-lg">
-        <h1 class="text-xl font-semibold mt-4 text-primary">Hasil Perhitungan IMT</h1>
+      <div class="flex flex-col bg-gray-50 px-8 sm:px-16 py-5 sm:py-10 rounded-xl justify-center items-center lg:max-w-xl shadow-lg">
+        <h1 class="text-xl font-semibold mt-4 text-primary text-center">Hasil Perhitungan IMT</h1>
         <div class="flex mt-6 w-40 h-40 rounded-full items-center justify-center bg-ternary">
           <div class="flex w-32 h-32 rounded-full items-center justify-center bg-primary">
             <div class="text-4xl text-white">{{ round($bmi['value'], 2) }}</div>
@@ -110,7 +110,7 @@
         </p>
         <a
           href="#"
-          class="w-full text-center border-2 rounded-xl border-black bg-primary px-9 py-2 mt-2 text-white"
+          class="w-full text-center border rounded-xl border-black bg-primary px-3 sm:px-9 py-2 mt-2 text-white"
         >
           Atur Asupan Kalorimu
         </a>
