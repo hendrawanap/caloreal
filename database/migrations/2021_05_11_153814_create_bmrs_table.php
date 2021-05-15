@@ -21,7 +21,6 @@ class CreateBmrsTable extends Migration
             $table->integer('height');
             $table->integer('age');
             $table->string('sex');
-            $table->integer('user_calorie')->nullable();
         });
     }
 
