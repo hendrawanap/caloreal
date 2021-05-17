@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.login-signup')
 
-@section('content')
+{{-- @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -43,5 +43,48 @@
             </div>
         </div>
     </div>
+</div>
+@endsection --}}
+
+@section('content')
+<div class="container mx-auto flex flex-col items-center max-w-lg">
+  <h1 class="text-center text-4xl font-semibold text-primary mt-10 mb-12">Reset Password</h1>
+  
+  @if(session('status'))
+  <div class=" flex text-sm text-gray-700 bg-green-200 p-3 items-center rounded-md mb-4">
+    <div class="material-icons mr-3">check</div>
+    <div>{{ session('status') }}</div>
+  </div>
+  @endif
+
+  @error('email')
+  <div class=" flex text-sm text-gray-700 bg-red-200 p-3 items-center rounded-md mb-4">
+    <div class="material-icons mr-3">block</div>
+    <div>{{ $message }}</div>
+  </div>
+  @enderror
+
+  <form class="w-full" method="POST" action="{{ route('password.email') }}">
+    @csrf
+    <div>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        class="w-full py-2 px-4 rounded-xl border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
+        value="{{ old('email') }}"
+        autocomplete="email"
+        placeholder="Email"
+        required
+        autofocus
+      >
+    </div>
+
+    <div class="flex flex-col justify-center mt-10">
+      <button type="submit" class="border-2 rounded-xl bg-primary px-9 py-2 text-white text-sm">
+        {{ __('Kirim Tautan Reset Password') }}
+      </button>
+    </div>
+  </form>
 </div>
 @endsection
