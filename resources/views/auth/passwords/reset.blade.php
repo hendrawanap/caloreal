@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.login-signup')
 
-@section('content')
+{{-- @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -61,5 +61,72 @@
             </div>
         </div>
     </div>
+</div>
+@endsection --}}
+
+@section('content')
+<div class="container mx-auto flex flex-col items-center max-w-lg">
+  <h1 class="text-center text-4xl font-semibold text-primary mt-10 mb-12">Reset Password</h1>
+  <form class="w-full" method="POST" action="{{ route('password.update') }}">
+    @csrf
+
+    <input type="hidden" name="token" value="{{ $token }}">
+    
+    <div>
+    <div>
+      <input
+        id="email"
+        type="email"
+        class="w-full py-2 px-4 rounded-xl border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
+        name="email"
+        value="{{ $email ?? old('email') }}"
+        placeholder="Email"
+        autocomplete="email"
+        required
+      >
+
+      @error('email')
+          <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+      @enderror
+    </div>
+
+    <div class="mt-6">
+      <input
+        id="password"
+        type="password"
+        class="w-full py-2 px-4 rounded-xl border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
+        name="password"
+        placeholder="Password"
+        autocomplete="new-password"
+        required
+      >
+
+      @error('password')
+          <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+      @enderror
+    </div>
+
+    <div class="mt-6">
+      <input
+        id="password-confirm"
+        type="password"
+        class="w-full py-2 px-4 rounded-xl border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
+        name="password_confirmation"
+        autocomplete="new-password"
+        placeholder="Konfirmasi Password"
+        required
+      >
+    </div>
+
+    <div class="flex flex-col justify-center mt-10">
+      <button type="submit" class="border-2 rounded-xl bg-primary px-9 py-2 text-white text-sm">
+          {{ __('Reset Password') }}
+      </button>
+    </div>
+  </form>
 </div>
 @endsection
