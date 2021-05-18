@@ -37,7 +37,7 @@
                 @else
                 <li>
                     <div class="flex items-center">
-                        <a href="#" class="mr-2">
+                        <a href="{{ route('profile') }}" class="mr-2">
                             {{ Auth::user()->name }}
                         </a>
 

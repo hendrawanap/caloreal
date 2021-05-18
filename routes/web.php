@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BmrController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,5 @@ Route::post('/food/store', 'App\Http\Controllers\FoodController@store');
 Route::get('/food/edit/{id}', 'App\Http\Controllers\FoodController@edit');
 Route::post('/food/update', 'App\Http\Controllers\FoodController@update');
 Route::get('/food/delete/{id}', 'App\Http\Controllers\FoodController@delete');
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');

@@ -7,6 +7,7 @@ module.exports = {
         'primary': '#282846',
         'secondary': '#024275',
         'ternary': '#E9FCFD',
+        'danger': '#FA3E3E'
       },
       fontFamily: {
         'sans': ['Poppins', 'Helvetica', 'Arial', 'sans-serif'],
