@@ -14,13 +14,11 @@
   </div>
 </div>
 <div class="container mx-auto pt-10 pb-10 flex flex-wrap lg:flex-nowrap justify-between">
-    <div class="container mx-auto pt-10 pb-10 flex flex-wrap lg:flex-nowrap justify-between">
-        <div class="mr-10 w-full lg:max-w-sm xl:max-w-lg">
-            @livewire('bmr-form')
-        </div>
-        <div class="flex flex-shrink mt-4 lg:max-w-md lg:mt-0 xl:max-w-2xl">
-            @livewire('bmi-result')
-        </div>
-    </div>
+  <div class="mr-10 w-full lg:max-w-sm xl:max-w-lg">
+      @livewire('bmr-form')
+  </div>
+  <div class="flex flex-shrink mt-4 lg:max-w-md lg:mt-0 xl:max-w-2xl">
+      @livewire('bmi-result')
+  </div>
 </div>
 @endsection
