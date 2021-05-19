@@ -26,7 +26,7 @@ class BmiResult extends Component
 
     public function calculateBMI($input)
     {
-        $bmi = array('value' => $input['weight'] / pow($input['height'] * 0.01, 2));
+        $bmi = array('value' => $input['bmi']);
 
         if ($bmi['value'] < 17) {
             $bmi['category'] = 'Sangat Kurus';

@@ -3,7 +3,6 @@
 @section('title', 'Daking | Profile')
 
 @section('content')
-
     <div class="container mx-auto flex">
         <div class="flex flex-col flex-shrink-0 w-56 mr-5">
             <div class="flex flex-col items-center p-4 bg-gray-50 rounded-xl text-primary">
@@ -28,7 +27,7 @@
                 </div>
                 <div class="flex mt-2 w-24 h-24 rounded-full items-center justify-center" style="background-color:#97FC95">
                     <div class="flex w-20 h-20 rounded-full items-center justify-center bg-gray-50">
-                        <div class="text-xl font-semibold">{{ round($bmi['value'], 2) }}</div>
+                        <div class="text-xl font-semibold">{{ round($bmr->bmi, 2) }}</div>
                     </div>
                 </div>
                 <div class="text-xl font-semibold mt-2">1700 kkal</div>

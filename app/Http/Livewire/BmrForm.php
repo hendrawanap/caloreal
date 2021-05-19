@@ -34,6 +34,8 @@ class BmrForm extends Component
                     'age' => $this->age,
                     'height' => $this->height,
                     'weight' => $this->weight,
+                    'bmi' => $this->weight / pow($this->height * 0.01, 2),
+                    'bmr' => $this->calculateBMR($this->weight, $this->height, $this->age, $this->sex)
                 ]
             );
         } else {
@@ -46,6 +48,16 @@ class BmrForm extends Component
         $this->resetInput();
 
         $this->emit('bmrSaved', $bmr);
+    }
+
+    public function calculateBMR($weight, $height, $age, $sex)
+    {
+        if($sex == 'Male')
+        {
+            return 66 + (13.7 * $weight) + (5 * $height) - (6.8 * $age);
+        }
+
+        return 655 + (9.6 * $weight) + (1.8 * $height) - (4.7 * $age);
     }
 
     private function resetInput()

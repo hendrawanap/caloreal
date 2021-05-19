@@ -21,6 +21,8 @@ class CreateBmrsTable extends Migration
             $table->integer('height');
             $table->integer('age');
             $table->string('sex');
+            $table->double('bmi');
+            $table->integer('bmr');
         });
     }
 
