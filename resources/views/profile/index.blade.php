@@ -14,21 +14,21 @@
             {{ Auth::user()->name }}
           </div>
           <div class="text-sm font-medium">
-            20 Tahun
+            {{ $bmr->age }} Tahun
           </div>
         </div>
       </div>
       <div class="flex w-full justify-between text-sm mt-2">
         <div class="font-medium">Berat Badan</div>
-        <div class="font-semibold">60 kg</div>
+        <div class="font-semibold">{{ $bmr->weight }} kg</div>
       </div>
       <div class="flex w-full justify-between text-sm mt-2">
         <div class="font-medium">Tinggi Badan</div>
-        <div class="font-semibold">160 cm</div>
+        <div class="font-semibold">{{ $bmr->height }} cm</div>
       </div>
       <div class="flex mt-2 w-24 h-24 rounded-full items-center justify-center" style="background-color:#97FC95">
         <div class="flex w-20 h-20 rounded-full items-center justify-center bg-gray-50">
-          <div class="text-xl font-semibold">24.5</div>
+          <div class="text-xl font-semibold">{{ round($bmi['value'], 2) }}</div>
         </div>
       </div>
       <div class="text-xl font-semibold mt-2">1700 kkal</div>
