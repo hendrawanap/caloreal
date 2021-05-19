@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class menus extends Model
+class Menu extends Model
 {
     public function foods()
     {
-        return $this->BelongsToMany(Foods::class);
+        return $this->BelongsToMany(Food::class);
     }
 }

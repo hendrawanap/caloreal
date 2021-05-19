@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Food;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,7 +11,7 @@ class FoodController extends Controller
     //
     public function index()
     {
-        $foods = DB::table('foods')->get();
+        $foods = Food::all();
 
         return view('food.index', ['foods' => $foods]);
     }
@@ -22,7 +23,7 @@ class FoodController extends Controller
 
     public function store(Request $request)
     {
-        DB::table('foods')->insert([
+        Food::create([
             'foodname' => $request->foodname,
             'quantity' => $request->quantity,
             'calorie' => $request->calorie,
@@ -35,13 +36,13 @@ class FoodController extends Controller
 
     public function edit($id)
     {
-        $foods = DB::table('foods')->where('id', $id)->get();
-        return view('/food/edit', ['foods' => $foods]);
+        $food = Food::where('id', $id)->get();
+        return view('/food/edit', ['food' => $food]);
     }
 
     public function update(Request $request)
     {
-        DB::table('foods')->where('id', $request->id)->update([
+        Food::where('id', $request->id)->update([
             'foodname' => $request->foodname,
             'quantity' => $request->quantity,
             'calorie' => $request->calorie,
@@ -54,7 +55,7 @@ class FoodController extends Controller
 
     public function delete($id)
     {
-        DB::table('foods')->where('id', $id)->delete();
+        Food::where('id', $id)->delete();
         return redirect('/food');
     }
 }
