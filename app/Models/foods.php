@@ -10,6 +10,6 @@ class foods extends Model
 {
     public function menus()
     {
-        return $this->BelongsToMany(Foods::class);
+        return $this->BelongsToMany(Menus::class);
     }
 }
