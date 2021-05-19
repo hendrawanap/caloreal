@@ -5,26 +5,26 @@
 @section('content')
 
 <div class="container mx-auto flex">
-  <div class="flex flex-col flex-shrink-0 w-60 mr-5">
+  <div class="flex flex-col flex-shrink-0 w-56 mr-5">
     <div class="flex flex-col items-center p-4 bg-gray-50 rounded-xl text-primary">
       <div class="flex w-full items-center">
-        <div class="rounded-full w-16 h-16 bg-white mr-4"></div>
+        <div class="rounded-full w-14 h-14 bg-gray-500 mr-4"></div>
         <div>
           <div class="text-xl font-semibold">
             {{ Auth::user()->name }}
           </div>
-          <div class="text-sm">
+          <div class="text-sm font-medium">
             20 Tahun
           </div>
         </div>
       </div>
       <div class="flex w-full justify-between text-sm mt-2">
-        <div>Berat Badan</div>
-        <div class="font-medium">60 kg</div>
+        <div class="font-medium">Berat Badan</div>
+        <div class="font-semibold">60 kg</div>
       </div>
       <div class="flex w-full justify-between text-sm mt-2">
-        <div>Tinggi Badan</div>
-        <div class="font-medium">160 cm</div>
+        <div class="font-medium">Tinggi Badan</div>
+        <div class="font-semibold">160 cm</div>
       </div>
       <div class="flex mt-2 w-24 h-24 rounded-full items-center justify-center" style="background-color:#97FC95">
         <div class="flex w-20 h-20 rounded-full items-center justify-center bg-gray-50">
@@ -33,7 +33,7 @@
       </div>
       <div class="text-xl font-semibold mt-2">1700 kkal</div>
       <a
-        href="#"
+        href="{{ route('bmr.index') }}"
         class="w-full text-center  text-sm border rounded-xl border-black bg-primary px-3 sm:px-9 py-2 mt-2 text-white"
       >
         Hitung Ulang
@@ -42,19 +42,19 @@
     <form class="mt-5" action="{{ route('logout') }}" method="POST" class="ml-2">
       @csrf
       <button href="{{ route('logout') }}"
-          class="border rounded-2xl border-danger px-9 py-2 text-danger text-sm w-full"
+          class="border rounded-2xl border-danger px-9 py-2 text-danger text-sm w-full font-semibold"
           type="submit">
           Log Out
       </button>
     </form>
   </div>
-  <div class="flex flex-1 flex-col">
+  <div class="flex flex-1 flex-col text-primary">
     <div class="flex">
       <div class="flex flex-1 flex-col max-w-lg mr-12">
         <div class="text-xl font-semibold">List Menu Saya</div>
         <div class="relative px-5 mt-2">
-          <button class="absolute left-0 top-16 material-icons p-2 bg-secondary rounded-full">arrow_left</button>
-          <div class="flex overflow-x-auto">
+          <button class="absolute left-0 top-16 material-icons p-2 bg-secondary rounded-full" id="my-menu-prev">arrow_left</button>
+          <div class="flex overflow-x-auto scrollbar-hide" id="my-menu">
             <div class="flex-shrink-0 w-48 h-36 bg-gray-50 mr-2 rounded-xl p-3">
               <div class="font-semibold text-lg">Menu 1</div>
               <div class="ml-3 mt-1 text-sm">Nasi goreng sehat</div>
@@ -73,14 +73,14 @@
               <div class="absolute left-0 right-0 bottom-8 text-center">Buat Menu</div>
             </div>
           </div>
-          <button class="absolute right-0 top-16 material-icons p-2 bg-secondary rounded-full">arrow_right</button>
+          <button class="absolute right-0 top-16 material-icons p-2 bg-secondary rounded-full" id="my-menu-next">arrow_right</button>
         </div>
       </div>
       <div class="flex flex-1 flex-col max-w-lg">
         <div class="text-xl font-semibold">Rekomendasi Menu</div>
         <div class="relative px-5 mt-2">
-          <button class="absolute left-0 top-16 material-icons p-2 bg-secondary rounded-full">arrow_left</button>
-          <div class="flex overflow-x-auto">
+          <button class="absolute left-0 top-16 material-icons p-2 bg-secondary rounded-full" id="rec-menu-prev">arrow_left</button>
+          <div class="flex overflow-x-auto" id="rec-menu">
             <div class="flex-shrink-0 w-48 h-36 bg-gray-50 mr-2 rounded-xl p-3">
               <div class="font-semibold text-lg">Menu 1</div>
               <div class="ml-3 mt-1 text-sm">Nasi goreng sehat</div>
@@ -96,21 +96,21 @@
               <div class="ml-3 mt-1 text-sm">Nasi goreng sehat</div>
             </div>
           </div>
-          <button class="absolute right-0 top-16 material-icons p-2 bg-secondary rounded-full">arrow_right</button>
+          <button class="absolute right-0 top-16 material-icons p-2 bg-secondary rounded-full" id="rec-menu-next">arrow_right</button>
         </div>
       </div>
     </div>
     <div class="flex flex-col mt-3">
       <div class="flex justify-between bg-gray-50 rounded-xl px-4 py-5 text-xl font-semibold w-full">
-        <div>Rekomendasi Menu</div>
-        <div>1200 <span>/ 1700 kkal</span></div>
+        <div>Rekomendasi Menu 1</div>
+        <div>1200 <span class="text-base text-secondary">/ 1700 kkal</span></div>
       </div>
       <div class="bg-gray-50 rounded-xl px-4 py-5 w-full mt-3">
-        <div class="flex justify-between gap-x-4">
-          <div class="text-sm flex-1 border text-center border-secondary bg-secondary py-3 rounded-xl">Sarapan</div>
-          <div class="text-sm flex-1 border text-center border-primary py-3 rounded-xl">Makan Siang</div>
-          <div class="text-sm flex-1 border text-center border-primary py-3 rounded-xl">Makan Malam</div>
-          <div class="text-sm flex-1 border text-center border-primary py-3 rounded-xl">Snack</div>
+        <div class="flex justify-between gap-x-4 text-sm text-center font-semibold">
+          <div class="flex-1 border border-secondary bg-secondary py-3 rounded-xl">Sarapan</div>
+          <div class="flex-1 border border-primary py-3 rounded-xl">Makan Siang</div>
+          <div class="flex-1 border border-primary py-3 rounded-xl">Makan Malam</div>
+          <div class="flex-1 border border-primary py-3 rounded-xl">Snack</div>
         </div>
         <table class="table-fixed w-full text-left mt-5">
           <thead class="border-b border-gray-400">
@@ -154,4 +154,17 @@
   </div>
 </div>
 
+<script>
+  document.getElementById('my-menu-prev').addEventListener('click', () => prevMenu('my-menu'));
+  document.getElementById('my-menu-next').addEventListener('click', () => nextMenu('my-menu'));
+  document.getElementById('rec-menu-prev').addEventListener('click', () => prevMenu('rec-menu'));
+  document.getElementById('rec-menu-next').addEventListener('click', () => nextMenu('rec-menu'));
+
+  function nextMenu(id) {
+    document.getElementById(id).scrollBy(200, 0);
+  }
+  function prevMenu(id) {
+    document.getElementById(id).scrollBy(-200, 0);
+  }
+</script>
 @endsection
