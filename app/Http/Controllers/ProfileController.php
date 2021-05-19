@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bmr;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -18,9 +19,13 @@ class ProfileController extends Controller
   
     $bmi = $this->calculateBMI($bmr->weight, $bmr->height);
 
+    $menus = auth()->user()->menus;
+  
+
     return view('profile.index', [
       'bmr' => $bmr,
-      'bmi' => $bmi
+      'bmi' => $bmi,
+      'menus' => $menus,
     ]);
   }
 

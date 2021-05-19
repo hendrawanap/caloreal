@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Bmr::class);
     }
+
+    public function menus()
+    {
+        return $this->hasMany(Menu::class);
+    }
 }

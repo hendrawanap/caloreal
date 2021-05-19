@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Food extends Model
 {
+    protected $table = 'foods';
+
     public function menus()
     {
         return $this->BelongsToMany(Menu::class);

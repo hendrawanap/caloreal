@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
+    protected $table = 'menus';
     public function foods()
     {
-        return $this->BelongsToMany(Food::class);
+        return $this->belongsToMany(Food::class);
     }
 }

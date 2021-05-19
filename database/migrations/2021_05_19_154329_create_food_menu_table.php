@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMenusTable extends Migration
+class CreateFoodMenuTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateMenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->foreignId('user_id');
-            $table->string('name');
-            $table->integer('total_calorie')->nullable();
+        Schema::create('food_menu', function (Blueprint $table) {
+            $table->foreignId('food_id')->constrained('foods');
+            $table->foreignId('menu_id')->constrained('menus');
+            
+            $table->primary(['food_id', 'menu_id']);
         });
     }
 
@@ -29,6 +28,6 @@ class CreateMenusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus_table');
+        Schema::dropIfExists('food_menu');
     }
 }
