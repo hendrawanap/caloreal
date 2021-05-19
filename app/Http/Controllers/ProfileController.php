@@ -14,7 +14,7 @@ class ProfileController extends Controller
 
   public function index()
   {
-    $bmr = Bmr::where('user_id', auth()->user()->id)->first();
+    $bmr = auth()->user()->bmr;
   
     $bmi = $this->calculateBMI($bmr->weight, $bmr->height);
 
