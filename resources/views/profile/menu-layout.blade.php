@@ -1,7 +1,10 @@
 <div class="flex flex-1 flex-col text-primary">
     <div class="flex">
         <div class="flex flex-1 flex-col max-w-lg mr-12">
-            <div class="text-xl font-semibold">List Menu Saya</div>
+            <div wire:loading.remove class="text-xl font-semibold">List Menu Saya</div>
+            <div wire:loading wire:target="setMenu" class="text-xl font-semibold">
+                Loading...
+            </div>
             <div class="relative px-5 mt-2">
                 <button class="absolute z-10 left-0 top-16 material-icons p-2 bg-secondary rounded-full "
                     id="my-menu-prev">arrow_left</button>

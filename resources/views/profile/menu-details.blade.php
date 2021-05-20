@@ -7,10 +7,7 @@
 
 <div class="flex flex-col mt-3">
     <div class="flex justify-between bg-gray-50 rounded-xl px-4 py-5 text-xl font-semibold w-full">
-        <div wire:loading.remove>{{ $menu->name }}</div>
-        <div wire:loading class="static">
-            Loading...
-        </div>
+        <div>{{ $menu->name }}</div>
         <div>{{ $menu->foods->sum('calorie') }} <span class="text-base text-secondary">/ 1700 kkal</span></div>
     </div>
     <div class="bg-gray-50 rounded-xl px-4 py-5 w-full mt-3">
