@@ -8,21 +8,12 @@ class MenuDetails extends Component
 {
     public $menu;
     public $foods;
-    public $hidden;
 
-    protected $listeners = ['foodsUpdated' => '$refresh'];
-
-    public function mount($menu)
-    {
-      $this->hidden = true;
-      $this->foods = $menu->sarapan;
-    }
 
     public function setFoods($newFoods) 
     {
       $this->foods = $newFoods;
-      // dd($this->foods);
-      $this->emit('foodsUpdated');
+      $this->emit('foodsUpdated', $newFoods);
     }
 
     public function render()

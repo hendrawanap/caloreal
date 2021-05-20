@@ -9,9 +9,9 @@
   <tbody class="border-b border-gray-400 pb-2">
       @foreach ($foods as $food)
         <tr>
-            <td class="py-2">{{ $food->foodname }}</td>
-            <td class="py-2">{{ $food->quantity }}</td>
-            <td class="py-2">{{ $food->calorie }} kkal</td>
+            <td class="py-2">{{ $food['foodname'] }}</td>
+            <td class="py-2">{{ $food['quantity'] }}</td>
+            <td class="py-2">{{ $food['calorie'] }} kkal</td>
         </tr>
       @endforeach
   </tbody>

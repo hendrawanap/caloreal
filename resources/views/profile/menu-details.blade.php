@@ -3,7 +3,6 @@
     $makanSiang = $menu->makanSiang;
     $makanMalam = $menu->makanMalam;
     $snack = $menu->snack;
-    // $foods = $makanSiang;
 @endphp
 
 <div class="flex flex-col mt-3">
@@ -19,9 +18,6 @@
           <button wire:click="setFoods({{ $snack }})" class="flex-1 border border-primary py-3 rounded-xl">Snack</button>
       </div>
       @livewire('foods-table', ['foods' => $sarapan])
-      @livewire('foods-table', ['foods' => $makanSiang])
-      @livewire('foods-table', ['foods' => $makanMalam])
-      @livewire('foods-table', ['foods' => $snack])
   </div>
   <div
       class="self-end text-center  text-sm border rounded-xl border-black bg-primary px-3 sm:px-16 py-2 mt-2 text-white">
