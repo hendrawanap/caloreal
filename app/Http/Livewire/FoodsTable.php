@@ -8,10 +8,17 @@ class FoodsTable extends Component
 {
     public $foods;
     protected $listeners = ['foodsUpdated' => 'changeFoods'];
+    public $totalCalorie;
 
-    public function changeFoods($newFoods)
+    public function mount()
+    {
+      $this->totalCalorie = $this->foods->sum('calorie');
+    }
+
+    public function changeFoods($newFoods, $calorie)
     {
       $this->foods = $newFoods;
+      $this->totalCalorie = $calorie;
     }
     
     public function render()

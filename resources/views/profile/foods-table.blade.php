@@ -19,7 +19,7 @@
       <tr>
           <th class="text-xl font-semibold">Total Kalori</th>
           <th></th>
-          <th class="text-xl font-semibold">270 kkal</th>
+          <th class="text-xl font-semibold">{{ $totalCalorie }} kkal</th>
       </tr>
   </tfoot>
 </table>
