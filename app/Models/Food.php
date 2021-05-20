@@ -12,6 +12,6 @@ class Food extends Model
 
     public function menus()
     {
-        return $this->BelongsToMany(Menu::class);
+        return $this->belongsToMany(Menu::class)->withPivot('time');
     }
 }

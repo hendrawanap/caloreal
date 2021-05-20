@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title>@yield('title')</title>
+    @livewireStyles
 </head>
 
 <body class="flex flex-col min-h-screen">
@@ -25,6 +26,7 @@
           2021 Made by Daking 🦆
       </div>
     </footer>
+    @livewireScripts
 </body>
 
 </html>

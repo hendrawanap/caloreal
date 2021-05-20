@@ -78,7 +78,7 @@
         type="submit"
         name="submit"
         value="Hitung IMT"
-        class="border-2 rounded-2xl border-primary bg-primary mt-4 px-9 py-2 text-white text-sm mt-10 w-min"
+        class="border-2 rounded-2xl border-primary bg-primary px-9 py-2 text-white text-sm mt-10 w-min"
       >
   </form>
 </div>

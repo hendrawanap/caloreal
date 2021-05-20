@@ -10,6 +10,26 @@ class Menu extends Model
     protected $table = 'menus';
     public function foods()
     {
-        return $this->belongsToMany(Food::class);
+        return $this->belongsToMany(Food::class)->withPivot('time');
+    }
+
+    public function sarapan()
+    {
+      return $this->belongsToMany(Food::class)->wherePivot('time','Sarapan');
+    }
+
+    public function makanSiang()
+    {
+      return $this->belongsToMany(Food::class)->wherePivot('time','Makan Siang');
+    }
+
+    public function makanMalam()
+    {
+      return $this->belongsToMany(Food::class)->wherePivot('time','Makan Malam');
+    }
+
+    public function snack()
+    {
+      return $this->belongsToMany(Food::class)->wherePivot('time','Snack');
     }
 }

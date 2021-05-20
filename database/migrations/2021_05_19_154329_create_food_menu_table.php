@@ -16,7 +16,7 @@ class CreateFoodMenuTable extends Migration
         Schema::create('food_menu', function (Blueprint $table) {
             $table->foreignId('food_id')->constrained('foods');
             $table->foreignId('menu_id')->constrained('menus');
-            
+            $table->string('time');
             $table->primary(['food_id', 'menu_id']);
         });
     }
