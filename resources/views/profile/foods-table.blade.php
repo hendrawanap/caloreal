@@ -10,7 +10,7 @@
       @foreach ($foods as $food)
         <tr>
             <td class="py-2">{{ $food['foodname'] }}</td>
-            <td class="py-2">{{ $food['quantity'] }}</td>
+            <td class="py-2">{{ $food['quantity'] }} gram</td>
             <td class="py-2">{{ $food['calorie'] }} kkal</td>
         </tr>
       @endforeach

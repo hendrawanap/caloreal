@@ -3,11 +3,11 @@
       <div class="flex flex-1 flex-col max-w-lg mr-12">
           <div class="text-xl font-semibold">List Menu Saya</div>
           <div class="relative px-5 mt-2">
-              <button class="absolute z-10 left-0 top-16 material-icons p-2 bg-secondary rounded-full"
+              <button class="absolute z-10 left-0 top-16 material-icons p-2 bg-secondary rounded-full "
                   id="my-menu-prev">arrow_left</button>
               <div class="flex overflow-x-auto scrollbar-hide" id="my-menu">
                   @foreach ($menus as $menu)
-                      <div wire:click="setMenu({{ $menu }})" class="flex-shrink-0 w-48 h-36 bg-gray-50 mr-2 rounded-xl p-3">
+                      <div wire:click="setMenu({{ $menu }})" class="flex-shrink-0 w-48 h-36 bg-gray-50 hover:bg-gray-100 mr-2 rounded-xl p-3 cursor-pointer">
                           <div class="font-semibold text-lg">{{ $menu->name }}</div>
                           @foreach ($menu->foods->take(4) as $food)
                             <div class="ml-3 mt-1 text-sm">{{ $food->foodname }}</div>                            
@@ -15,7 +15,7 @@
                       </div>
                   @endforeach
                   <div
-                      class="border border-dashed border-gray-500 flex-shrink-0  w-48 h-36 bg-gray-50 mr-2 rounded-xl relative">
+                      class="border border-dashed border-gray-500 flex-shrink-0 w-48 h-36 bg-gray-50 hover:bg-gray-100 mr-2 rounded-xl relative">
                       <div class="absolute left-0 right-0 bottom-8 text-center">Buat Menu</div>
                   </div>
               </div>
