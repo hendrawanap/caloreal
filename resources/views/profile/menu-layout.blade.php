@@ -7,9 +7,9 @@
                   id="my-menu-prev">arrow_left</button>
               <div class="flex overflow-x-auto scrollbar-hide" id="my-menu">
                   @foreach ($menus as $menu)
-                      <div class="flex-shrink-0 w-48 h-36 bg-gray-50 mr-2 rounded-xl p-3">
+                      <div wire:click="setMenu({{ $menu }})" class="flex-shrink-0 w-48 h-36 bg-gray-50 mr-2 rounded-xl p-3">
                           <div class="font-semibold text-lg">{{ $menu->name }}</div>
-                          @foreach ($menu->foods as $food)
+                          @foreach ($menu->foods->take(4) as $food)
                             <div class="ml-3 mt-1 text-sm">{{ $food->foodname }}</div>                            
                           @endforeach
                       </div>
