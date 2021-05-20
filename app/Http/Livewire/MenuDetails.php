@@ -12,11 +12,24 @@ class MenuDetails extends Component
     public $menu;
     public $foods;
     public $selected;
+    public $sarapan;
+    public $makanSiang;
+    public $makanMalam;
+    public $snack;
     protected $listeners = ['menuUpdated' => 'changeMenu'];
 
     public function mount()
     {
       $this->selected = 'sarapan';
+      $this->refreshTime();
+    }
+
+    public function refreshTime()
+    {
+      $this->sarapan = $this->menu->sarapan;
+      $this->makanSiang = $this->menu->makanSiang;
+      $this->makanMalam = $this->menu->makanMalam;
+      $this->snack = $this->menu->snack;
     }
 
     public function updateFoodsTable($selected) 
@@ -24,6 +37,7 @@ class MenuDetails extends Component
       $this->setFoods($selected);
       // dd($this->foods);
       // dd($this->foods->sum('calorie'));
+      // $this->emit('foodsUpdated', $this->foods, 10);
       $this->emit('foodsUpdated', $this->foods, $this->foods->sum('calorie'));
     }
 
@@ -31,16 +45,17 @@ class MenuDetails extends Component
     {
       $this->selected = $selected;
       switch($selected) {
-        case 'sarapan': $this->foods = $this->menu->sarapan; break;
-        case 'makanSiang': $this->foods = $this->menu->makanSiang; break;
-        case 'makanMalam': $this->foods = $this->menu->makanMalam; break;
-        case 'snack': $this->foods = $this->menu->snack; break;
+        case 'sarapan': $this->foods = $this->sarapan; break;
+        case 'makanSiang': $this->foods = $this->makanSiang; break;
+        case 'makanMalam': $this->foods = $this->makanMalam; break;
+        case 'snack': $this->foods = $this->snack; break;
       }
     }
 
     public function changeMenu(Menu $menu)
     {
       $this->menu = $menu;
+      $this->refreshTime();
       $this->updateFoodsTable('sarapan');
     }
 

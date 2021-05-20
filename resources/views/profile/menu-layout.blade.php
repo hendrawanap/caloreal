@@ -11,7 +11,7 @@
                 <div class="flex overflow-x-auto scrollbar-hide" id="my-menu">
                     @foreach ($menus as $menu)
                         <div wire:click="setMenu({{ $menu }})"
-                            class="flex-shrink-0 w-48 h-36 bg-gray-50 hover:bg-gray-100 mr-2 rounded-xl p-3 cursor-pointer">
+                            class="flex-shrink-0 w-48 h-36 hover:bg-gray-200 mr-2 rounded-xl p-3 cursor-pointer {{ $selected == $menu->name ? 'bg-gray-200' : 'bg-gray-50'}}">
                             <div class="font-semibold text-lg">{{ $menu->name }}</div>
                             @foreach ($menu->foods->take(4) as $food)
                                 <div class="ml-3 mt-1 text-sm">{{ $food->foodname }}</div>

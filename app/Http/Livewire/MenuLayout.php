@@ -12,8 +12,14 @@ class MenuLayout extends Component
     public Menu $menu;
     public $selected;
 
+    public function mount() {
+      $this->menu = $this->menus[0];
+      $this->selected = $this->menu->name;
+    }
+
     public function setMenu(Menu $menu) {
       $this->menu = $menu;
+      $this->selected = $menu->name;
       // dd($this->menu);
       $this->emit('menuUpdated', $menu);
     }
