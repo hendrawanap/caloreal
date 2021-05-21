@@ -16,7 +16,6 @@ class CreateMenusTable extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('user_id');
             $table->string('name');
             $table->integer('total_calorie')->nullable();
         });
