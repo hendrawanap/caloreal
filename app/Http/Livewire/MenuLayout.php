@@ -19,8 +19,7 @@ class MenuLayout extends Component
 
     public function mount() {
       if ($this->userMenus->count() !== 0) {
-        $this->userMenu = $this->userMenus[0];
-        $this->selected = $this->userMenu->name;
+        $this->selected = $this->userMenus[0]->name;
       } else {
         $this->selected = $this->recMenus[0]->name; 
       }
