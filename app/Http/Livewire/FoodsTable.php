@@ -20,11 +20,9 @@ class FoodsTable extends Component
       $this->totalCalorie = $this->foods->sum('calorie');
     }
 
-    public function detachFood($food, $menu)
+    public function detachFood($food)
     {
-      $this->menu = Menu::find($menu);
-      $this->menu->foods()->detach($food);
-      $this->emitUp('menuUpdated',$this->menu, true);
+      $this->emitUp('deleteFood', $food);
     }
 
     public function changeFoods($newFoods, $calorie)

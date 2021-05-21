@@ -14,7 +14,7 @@
                     <td class="py-2">{{ $food['foodname'] }}</td>
                     <td class="py-2">{{ $food['quantity'] }} gram</td>
                     <td class="py-2">{{ $food['calorie'] }} kkal</td>
-                    <td wire:click="detachFood({{ $food['id'] }}, {{ $menu['id'] }})">Hapus</td>
+                    <td wire:click="detachFood({{ $food['id'] }})">Hapus</td>
                 </tr>
             @endforeach
         </tbody>

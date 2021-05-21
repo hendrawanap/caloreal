@@ -19,6 +19,7 @@ class MenuDetails extends Component
   protected $listeners = [
     'menuUpdated' => 'changeMenu',
     'closeForm' => 'handleClose',
+    'deleteFood' => 'detachFood'
   ];
   public $isUserMenu;
   public $showForm = false;
@@ -29,6 +30,11 @@ class MenuDetails extends Component
     $this->refreshTime();
   }
 
+  public function detachFood($food)
+  {
+    $this->menu->foods()->detach($food);
+    $this->emitSelf('menuUpdated', $this->menu, true);
+  }
 
   public function handleClose()
   {
