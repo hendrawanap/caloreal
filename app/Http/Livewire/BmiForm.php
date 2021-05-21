@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Bmr;
 use Livewire\Component;
 
-class BmrForm extends Component
+class BmiForm extends Component
 {
     public $sex;
     public $age;
@@ -72,6 +72,6 @@ class BmrForm extends Component
 
     public function render()
     {
-        return view('livewire.bmr-form');
+        return view('livewire.bmi-form');
     }
 }

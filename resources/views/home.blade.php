@@ -25,7 +25,7 @@ $features = [
   <div class="container mx-auto h-96 flex flex-col items-center md:block">
     <h1 class="relative z-20 text-2xl font-bold mb-2 text-center md:text-left text-primary tracking-wide sm:text-3xl md:text-4xl lg:text-5xl sm:font-semibold">Hitung Indeks Massa Tubuh</h1>
     <h1 class="relative z-20 text-2xl font-bold mb-10 text-center md:text-left text-primary tracking-wide sm:text-3xl md:text-4xl lg:text-5xl sm:font-semibold">Asupan Kalori Harian</h1>
-    <a href="{{ route('bmr.index') }}" class="relative z-20 border rounded-2xl border-primary bg-primary px-9 py-3 text-white text tracking-wider">Hitung Sekarang</a>
+    <a href="{{ route('bmi.index') }}" class="relative z-20 border rounded-2xl border-primary bg-primary px-9 py-3 text-white text tracking-wider">Hitung Sekarang</a>
   </div>
   <img src="{{ asset('img/Vector-1.png') }}" alt="alt" class="hidden absolute z-10 bottom-0 left-0 md:block">
   <img src="{{ asset('img/Vector-2.png') }}" alt="alt" class="hidden absolute bottom-0 left-0 md:block">

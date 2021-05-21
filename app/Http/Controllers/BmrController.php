@@ -9,7 +9,7 @@ class BmrController extends Controller
 {
     public function index()
     {
-        return view('bmr.index');
+        return view('bmi.index');
     }
 
 }

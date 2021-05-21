@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="text-xl font-semibold mt-2">{{ $bmr ? $bmr->bmr : 0 }} kkal</div>
-                <a href="{{ route('bmr.index') }}"
+                <a href="{{ route('bmi.index') }}"
                     class="w-full text-center  text-sm border rounded-xl border-black bg-primary px-3 sm:px-9 py-2 mt-2 text-white">
                     Hitung Ulang
                 </a>

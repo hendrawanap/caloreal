@@ -16,7 +16,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/bmr', [BmrController::class, 'index'])->name('bmr.index');
+Route::get('/bmi', [BmrController::class, 'index'])->name('bmi.index');
 
 Route::get('/food', [FoodController::class, 'index'])->name('food.index');
 Route::get('/food/add', 'App\Http\Controllers\FoodController@add');
