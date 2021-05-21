@@ -18,7 +18,7 @@ class CreateFoodMenuTable extends Migration
             $table->foreignId('menu_id')->constrained('menus');
             $table->string('time');
             $table->integer('quantity');
-            $table->primary(['food_id', 'menu_id']);
+            $table->primary(['food_id', 'menu_id', 'time']);
         });
     }
 
