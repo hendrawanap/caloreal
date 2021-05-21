@@ -25,7 +25,7 @@ class MenuDetails extends Component
 
   public function mount()
   {
-    $this->selected = 'sarapan';
+    $this->selected = 'Sarapan';
     $this->refreshTime();
   }
 
@@ -53,16 +53,16 @@ class MenuDetails extends Component
   {
     $this->selected = $selected;
     switch ($selected) {
-      case 'sarapan':
+      case 'Sarapan':
         $this->foods = $this->sarapan;
         break;
-      case 'makanSiang':
+      case 'Makan Siang':
         $this->foods = $this->makanSiang;
         break;
-      case 'makanMalam':
+      case 'Makan Malam':
         $this->foods = $this->makanMalam;
         break;
-      case 'snack':
+      case 'Snack':
         $this->foods = $this->snack;
         break;
     }
@@ -73,7 +73,7 @@ class MenuDetails extends Component
     $this->menu = $menu;
     $this->isUserMenu = $isUserMenu;
     $this->refreshTime();
-    $this->updateFoodsTable('sarapan');
+    $this->updateFoodsTable('Sarapan');
   }
 
   public function render()
