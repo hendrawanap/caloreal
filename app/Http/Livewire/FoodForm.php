@@ -15,7 +15,7 @@ class FoodForm extends Component
     public function addFood($food, $menu)
     {
         $this->menu = Menu::find($menu['id']);
-        $this->menu->foods()->attach($food['id'], ['time' => $this->time]);
+        $this->menu->foods()->attach($food['id'], ['time' => $this->time, 'quantity' => 1]);
         $this->emitUp('closeForm');
     }
 
