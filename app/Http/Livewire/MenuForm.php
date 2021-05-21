@@ -20,6 +20,8 @@ class MenuForm extends Component
             'name' => $this->name,
             'user_id' => auth()->user()->id,
         ]);
+
+        $this->emitUp('closeForm');
     }
 
     public function render()

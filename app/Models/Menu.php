@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
+    protected $guarded = [];
+
     protected $table = 'menus';
+
     public function foods()
     {
         return $this->belongsToMany(Food::class)->withPivot('time');
