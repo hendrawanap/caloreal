@@ -13,24 +13,24 @@
                             {{ Auth::user()->name }}
                         </div>
                         <div class="text-sm font-medium">
-                            {{ $bmr->age }} Tahun
+                            {{ $bmr ? $bmr->age : 0 }} Tahun
                         </div>
                     </div>
                 </div>
                 <div class="flex w-full justify-between text-sm mt-2">
                     <div class="font-medium">Berat Badan</div>
-                    <div class="font-semibold">{{ $bmr->weight }} kg</div>
+                    <div class="font-semibold">{{ $bmr ? $bmr->weight : 0 }} kg</div>
                 </div>
                 <div class="flex w-full justify-between text-sm mt-2">
                     <div class="font-medium">Tinggi Badan</div>
-                    <div class="font-semibold">{{ $bmr->height }} cm</div>
+                    <div class="font-semibold">{{ $bmr ? $bmr->height : 0 }} cm</div>
                 </div>
                 <div class="flex mt-2 w-24 h-24 rounded-full items-center justify-center" style="background-color:#97FC95">
                     <div class="flex w-20 h-20 rounded-full items-center justify-center bg-gray-50">
-                        <div class="text-xl font-semibold">{{ round($bmr->bmi, 2) }}</div>
+                        <div class="text-xl font-semibold">{{ round($bmr ? $bmr->bmi : 0, 2) }}</div>
                     </div>
                 </div>
-                <div class="text-xl font-semibold mt-2">{{ $bmr->bmr }} kkal</div>
+                <div class="text-xl font-semibold mt-2">{{ $bmr ? $bmr->bmr : 0 }} kkal</div>
                 <a href="{{ route('bmr.index') }}"
                     class="w-full text-center  text-sm border rounded-xl border-black bg-primary px-3 sm:px-9 py-2 mt-2 text-white">
                     Hitung Ulang
@@ -45,7 +45,14 @@
                 </button>
             </form>
         </div>
+        @if ($bmr !== null)
         @livewire('menu-layout',['userMenus' => $userMenus, 'recMenus' => $recMenus])
+            
+        @else
+            <div class="flex flex-1 flex-col text-primary">
+              Hitung IMT Anda terlebih dahulu!
+            </div>
+        @endif
 
         
     </div>

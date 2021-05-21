@@ -51,7 +51,12 @@
         </div>
     </div>
 
-    @livewire('menu-details', ['menu' => $userMenus[0], 'isUserMenu' => true])
+    @if ($userMenus->count() !== 0)
+      @livewire('menu-details', ['menu' => $userMenus[0], 'isUserMenu' => true])
+    @else
+      @livewire('menu-details', ['menu' => $recMenus[0], 'isUserMenu' => false])
+    @endif
+
     @if ($showForm)
         @livewire('menu-form')
     @endif
