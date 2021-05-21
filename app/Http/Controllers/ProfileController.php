@@ -16,11 +16,14 @@ class ProfileController extends Controller
   public function index()
   {
     $bmr = auth()->user()->bmr;
-    $menus = auth()->user()->menus;
+    $userMenus = auth()->user()->menus;
+    $recMenus = Menu::where('user_id', 0)->where('total_calorie', '<=', $bmr->bmr)->get();
+    // dd($recMenus->count());
   
     return view('profile.index', [
       'bmr' => $bmr,
-      'menus' => $menus,
+      'userMenus' => $userMenus,
+      'recMenus' => $recMenus
     ]);
   }
 }

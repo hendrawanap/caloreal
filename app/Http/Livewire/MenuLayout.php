@@ -8,13 +8,14 @@ use Livewire\Component;
 
 class MenuLayout extends Component
 {
-    public $menus;
-    public Menu $menu;
+    public $userMenus;
+    public $recMenus;
+    public $menu;
     public $selected;
 
     public function mount() {
-      $this->menu = $this->menus[0];
-      $this->selected = $this->menu->name;
+      $this->userMenu = $this->userMenus[0];
+      $this->selected = $this->userMenu->name;
     }
 
     public function setMenu(Menu $menu) {
