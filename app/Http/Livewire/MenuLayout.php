@@ -25,7 +25,10 @@ class MenuLayout extends Component
 
   public function mount()
   {
-    $this->selected = $this->userMenus[0]->name;
+    if ($this->userMenus->count() !==0 ) {
+      $this->selected = $this->userMenus[0]->name;
+
+    }
   }
 
   public function setMenu(Menu $menu, bool $isUserMenu)
