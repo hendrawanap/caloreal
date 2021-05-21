@@ -50,4 +50,8 @@
     </div>
     
     @livewire('menu-details', ['menu' => $userMenus[0], 'isUserMenu' => true])
+    
+    @if ($showForm)
+        @livewire('menu-form')
+    @endif
 </div>
