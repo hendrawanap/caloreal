@@ -17,7 +17,6 @@ class CreateFoodsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('foodname');
-            $table->foreignId('user_id');
             $table->integer('quantity');
             $table->integer('calorie');
             $table->string('type');
