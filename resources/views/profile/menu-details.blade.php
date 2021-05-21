@@ -29,6 +29,6 @@
     </div>
     <div
         class="self-end text-center  text-sm border rounded-xl border-black bg-primary px-3 sm:px-16 py-2 mt-2 text-white">
-        Duplikat
+        {{ $isUserMenu ? 'Simpan' : 'Duplikat'}}
     </div>
 </div>
