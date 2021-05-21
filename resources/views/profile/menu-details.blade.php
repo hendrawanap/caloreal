@@ -25,7 +25,7 @@
                 class="flex-1 border border-primary py-3 rounded-xl {{ $selected === 'Snack' ? 'border-secondary bg-secondary' : 'border-primary' }}"
                 id="btn-snack">Snack</button>
         </div>
-        @livewire('foods-table', ['foods' => $menu->sarapan])
+        @livewire('foods-table', ['foods' => $menu->sarapan, 'menu' => $menu])
     </div>
     @if ($showForm)
         @livewire('food-form', ['menu' => $menu, 'time' => $selected])

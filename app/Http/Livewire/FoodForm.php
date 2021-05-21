@@ -20,6 +20,7 @@ class FoodForm extends Component
         $this->emitUp('menuUpdated',$this->menu, true);
     }
 
+
     public function render()
     {
         return view('livewire.food-form', [

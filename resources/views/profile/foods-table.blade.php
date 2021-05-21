@@ -5,6 +5,7 @@
                 <th class="w-1/2 text-lg font-semibold">Makanan</th>
                 <th class="w-1/4 text-lg font-semibold">Porsi</th>
                 <th class="w-1/4 text-lg font-semibold">Kalori</th>
+                <th></th>
             </tr>
         </thead>
         <tbody class="border-b border-gray-400 pb-2">
@@ -13,6 +14,7 @@
                     <td class="py-2">{{ $food['foodname'] }}</td>
                     <td class="py-2">{{ $food['quantity'] }} gram</td>
                     <td class="py-2">{{ $food['calorie'] }} kkal</td>
+                    <td wire:click="detachFood({{ $food['id'] }}, {{ $menu['id'] }})">Hapus</td>
                 </tr>
             @endforeach
         </tbody>
