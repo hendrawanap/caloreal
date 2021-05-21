@@ -23,7 +23,7 @@
           tubuh per harinya. Agar tubuh mendapatkan sumber energi yang maksimal untuk beraktivitas.
       </p>
       <a
-        href="#"
+        href="{{ route("bmr.index")}}"
         class="w-full text-center border rounded-xl border-black bg-primary px-3 sm:px-9 py-2 mt-2 text-white"
       >
         Atur Asupan Kalorimu

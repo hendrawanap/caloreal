@@ -26,3 +26,4 @@ Route::post('/food/update', 'App\Http\Controllers\FoodController@update');
 Route::get('/food/delete/{id}', 'App\Http\Controllers\FoodController@delete');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::get('/bmr', function() { return view('bmr.index'); })->name('bmr.index');

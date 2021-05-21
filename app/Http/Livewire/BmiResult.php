@@ -8,10 +8,18 @@ use Livewire\Component;
 class BmiResult extends Component
 {
     public $bmi;
+    public $bmr;
     
     protected $listeners = [
         'bmrSaved' => 'handleSaved'
     ];
+
+    public function mount()
+    {
+      if ($this->bmr !== null) {
+        $this->handleSaved($this->bmr);
+      }
+    }
     
     public function handleSaved($bmr)
     {
