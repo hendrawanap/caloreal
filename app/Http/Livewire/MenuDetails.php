@@ -17,6 +17,7 @@ class MenuDetails extends Component
     public $makanMalam;
     public $snack;
     protected $listeners = ['menuUpdated' => 'changeMenu'];
+    public $isUserMenu;
 
     public function mount()
     {
@@ -52,9 +53,10 @@ class MenuDetails extends Component
       }
     }
 
-    public function changeMenu(Menu $menu)
+    public function changeMenu(Menu $menu, $isUserMenu)
     {
       $this->menu = $menu;
+      $this->isUserMenu = $isUserMenu;
       $this->refreshTime();
       $this->updateFoodsTable('sarapan');
     }

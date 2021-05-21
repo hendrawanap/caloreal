@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Menu;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class MenuLayout extends Component
@@ -18,11 +17,10 @@ class MenuLayout extends Component
       $this->selected = $this->userMenu->name;
     }
 
-    public function setMenu(Menu $menu) {
+    public function setMenu(Menu $menu, bool $isUserMenu) {
       $this->menu = $menu;
       $this->selected = $menu->name;
-      // dd($this->menu);
-      $this->emit('menuUpdated', $menu);
+      $this->emit('menuUpdated', $menu, $isUserMenu);
     }
 
     public function render()
