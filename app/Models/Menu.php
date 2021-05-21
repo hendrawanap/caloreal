@@ -18,21 +18,21 @@ class Menu extends Model
 
     public function sarapan()
     {
-      return $this->belongsToMany(Food::class)->wherePivot('time','Sarapan');
+      return $this->belongsToMany(Food::class)->wherePivot('time','sarapan');
     }
 
     public function makanSiang()
     {
-      return $this->belongsToMany(Food::class)->wherePivot('time','Makan Siang');
+      return $this->belongsToMany(Food::class)->wherePivot('time','makanSiang');
     }
 
     public function makanMalam()
     {
-      return $this->belongsToMany(Food::class)->wherePivot('time','Makan Malam');
+      return $this->belongsToMany(Food::class)->wherePivot('time','makanMalam');
     }
 
     public function snack()
     {
-      return $this->belongsToMany(Food::class)->wherePivot('time','Snack');
+      return $this->belongsToMany(Food::class)->wherePivot('time','snack');
     }
 }

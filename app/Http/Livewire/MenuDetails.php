@@ -18,7 +18,7 @@ class MenuDetails extends Component
   public $snack;
   protected $listeners = [
     'menuUpdated' => 'changeMenu',
-    'closeForm' => 'handleClose'
+    'closeForm' => 'handleClose',
   ];
   public $isUserMenu;
   public $showForm = false;
@@ -28,6 +28,7 @@ class MenuDetails extends Component
     $this->selected = 'sarapan';
     $this->refreshTime();
   }
+
 
   public function handleClose()
   {
@@ -45,9 +46,6 @@ class MenuDetails extends Component
   public function updateFoodsTable($selected)
   {
     $this->setFoods($selected);
-    // dd($this->foods);
-    // dd($this->foods->sum('calorie'));
-    // $this->emit('foodsUpdated', $this->foods, 10);
     $this->emit('foodsUpdated', $this->foods, $this->foods->sum('calorie'));
   }
 

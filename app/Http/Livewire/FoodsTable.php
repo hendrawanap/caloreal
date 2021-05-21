@@ -7,7 +7,9 @@ use Livewire\Component;
 class FoodsTable extends Component
 {
     public $foods;
-    protected $listeners = ['foodsUpdated' => 'changeFoods'];
+    protected $listeners = [
+      'foodsUpdated' => 'changeFoods',
+    ];
     public $totalCalorie;
 
     public function mount()
