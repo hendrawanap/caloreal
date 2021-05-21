@@ -12,12 +12,9 @@ class FoodForm extends Component
     public $food;
     public $time;
 
-    public function addFood($food, $menu)
+    public function addFood($food)
     {
-        $this->menu = Menu::find($menu['id']);
-        $this->menu->foods()->attach($food['id'], ['time' => $this->time, 'quantity' => 1]);
-        $this->emitUp('closeForm');
-        $this->emitUp('menuUpdated',$this->menu, true);
+        $this->emitUp('addFood', $food);
     }
 
 

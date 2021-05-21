@@ -19,7 +19,8 @@ class MenuDetails extends Component
   protected $listeners = [
     'menuUpdated' => 'changeMenu',
     'closeForm' => 'handleClose',
-    'deleteFood' => 'detachFood'
+    'deleteFood' => 'detachFood',
+    'addFood' => 'attachFood'
   ];
   public $isUserMenu;
   public $showForm = false;
@@ -28,6 +29,13 @@ class MenuDetails extends Component
   {
     $this->selected = 'Sarapan';
     $this->refreshTime();
+  }
+
+  public function attachFood($food)
+  {
+    $this->menu->foods()->attach($food['id'], ['time' => $this->selected, 'quantity' => 1]);
+    $this->emitSelf('closeForm');
+    $this->emitSelf('menuUpdated', $this->menu, true);
   }
 
   public function detachFood($food)
