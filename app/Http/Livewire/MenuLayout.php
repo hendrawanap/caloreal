@@ -12,6 +12,11 @@ class MenuLayout extends Component
     public $recMenus;
     public $menu;
     public $selected;
+    public $showForm = false;
+
+    protected $listeners = [
+      'closeForm' => 'handleClose'
+    ];
 
     public function mount() {
       $this->userMenu = $this->userMenus[0];
@@ -21,8 +26,12 @@ class MenuLayout extends Component
     public function setMenu(Menu $menu) {
       $this->menu = $menu;
       $this->selected = $menu->name;
-      // dd($this->menu);
       $this->emit('menuUpdated', $menu);
+    }
+
+    public function handleClose()
+    {
+      $this->showForm = false;
     }
 
     public function render()

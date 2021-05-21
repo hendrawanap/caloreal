@@ -46,6 +46,8 @@
             </form>
         </div>
         @livewire('menu-layout',['userMenus' => $userMenus, 'recMenus' => $recMenus])
+
+        
     </div>
 
     <script>
