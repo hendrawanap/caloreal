@@ -12,7 +12,7 @@
     <nav class="sticky top-0 py-6">
       <div class="container mx-auto flex items-center">
         <a href="{{ url()->previous() }}" class="material-icons mr-4 text-4xl text-gray-400">arrow_left</a>
-        <a href="{{route('home')}}">Logo</a>
+        <a href="{{route('home')}}"><img class="w-32" src="{{ asset('img/caloreal.png') }}" alt=""></a>
       </div>
     </nav>
     
