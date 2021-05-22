@@ -28,14 +28,14 @@
       class="w-full py-2 px-4 rounded-xl border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
       name="target"
       id="target"
-      placeholder="(dalam kg)"
+      placeholder="(berat badan sekarang: {{ auth()->user()->bmr->weight }} kg)"
     >
 
     <input
         type="submit"
         name="submit"
         value="Hitung Kalori"
-        class="border-2 rounded-2xl border-primary bg-primary px-9 py-2 text-white text-sm mt-10 w-min"
+        class="border-2 rounded-2xl border-primary bg-primary px-9 py-2 text-white text-sm mt-8 w-min"
       >
   </form>
 </div>
