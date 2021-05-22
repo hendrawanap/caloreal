@@ -12,6 +12,7 @@
                     id="my-menu-prev">arrow_left</button>
                 <div class="flex overflow-x-auto scrollbar-hide" id="my-menu">
                     @foreach ($userMenus as $userMenu)
+                        <div wire:click="destroyMenu({{ $userMenu['id'] }})">Hapus</div>
                         <div wire:click="setMenu({{ $userMenu }}, {{ true }})"
                             class="flex-shrink-0 w-48 h-36 hover:bg-gray-200 mr-2 rounded-xl p-3 cursor-pointer {{ $selected == $userMenu->name ? 'bg-gray-200' : 'bg-gray-50' }}">
                             <div class="font-semibold text-lg">{{ $userMenu->name }}</div>
