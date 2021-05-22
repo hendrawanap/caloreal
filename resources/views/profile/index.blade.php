@@ -1,19 +1,4 @@
 @php
-  if ($bmr) {
-    $bmi = array('value' => $bmr->bmi);
-    if ($bmi['value'] < 17) {
-        $bmi['category'] = 'Sangat Kurus';
-    } elseif ($bmi['value'] >= 17 && $bmi['value'] < 18.4) {
-        $bmi['category'] = 'Kurus Ringan';
-    } elseif ($bmi['value'] >= 18.4 && $bmi['value'] < 25) {
-        $bmi['category'] = 'Normal';
-    } elseif ($bmi['value'] >= 25 && $bmi['value'] < 27) {
-        $bmi['category'] = 'Gemuk Ringan';
-    } else {
-        $bmi['category'] = 'Sangat Gemuk';
-    }
-  }
-  
   $warna = [
     'Sangat Kurus' => '#95ACFC',
     'Kurus Ringan' => '#95F0FC',
@@ -52,7 +37,7 @@
                 </div>
                 <div class="flex mt-2 w-24 h-24 rounded-full items-center justify-center" style="background-color:{{ $warna[$bmi['category']] }}">
                     <div class="flex w-20 h-20 rounded-full items-center justify-center bg-gray-50">
-                        <div class="text-xl font-semibold">{{ round($bmr ? $bmr->bmi : 0, 2) }}</div>
+                        <div class="text-xl font-semibold">{{ round($bmi['value'] ? $bmi['value'] : 0, 2) }}</div>
                     </div>
                 </div>
                 <div class="text-xl font-semibold mt-2">{{ $bmr ? $bmr->bmr : 0 }} kkal</div>
