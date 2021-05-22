@@ -54,8 +54,9 @@
 
     @if ($userMenus->count() !== 0)
       @livewire('menu-details', ['menu' => $userMenus[0], 'isUserMenu' => true])
-    @else
+    @elseif ($recMenus->count() !== 0)
       @livewire('menu-details', ['menu' => $recMenus[0], 'isUserMenu' => false])
+    @else
     @endif
 
     @if ($showForm)

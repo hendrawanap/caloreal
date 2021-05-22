@@ -21,6 +21,9 @@ class MenuLayout extends Component
   public function refreshMenus()
   {
     $this->userMenus = Menu::where('user_id', auth()->user()->id)->get();
+    if ($this->userMenus === null) {
+      $this->menu = $this->recMenus[0];
+    }
   }
 
   public function mount()
