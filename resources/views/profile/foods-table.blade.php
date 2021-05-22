@@ -14,12 +14,19 @@
                     <td class="py-2">{{ $food['foodname'] }}</td>
                     <td class="py-2">{{ $food['quantity'] }} gram</td>
                     <td class="py-2">{{ $food['calorie'] }} kkal</td>
-                    <td class="material-icons py-2" >
-                    <span class="cursor-default">edit</span>
-                    <span class="cursor-default" wire:click="detachFood({{ $food['id'] }})">delete</span>
+                    <td class="material-icons py-2">
+                        <span class="cursor-default">edit</span>
+                        <span class="cursor-default" wire:click="detachFood({{ $food['id'] }})">delete</span>
                     </td>
                 </tr>
             @endforeach
+            <tr>
+                <td>
+                    <div wire:click="$emitUp('showFoodForm',{{ $menu }}, '{{ $time }}')" class="cursor-pointer">
+                        Tambah makanan
+                    </div>
+                </td>
+            </tr>
         </tbody>
         <tfoot>
             <tr>

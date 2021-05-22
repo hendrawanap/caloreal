@@ -9,6 +9,7 @@ class FoodsTable extends Component
 {
     public $foods;
     public $menu;
+    public $time;
 
     protected $listeners = [
       'foodsUpdated' => 'changeFoods',

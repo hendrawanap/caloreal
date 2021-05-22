@@ -25,7 +25,7 @@
                 class="flex-1 border border-primary py-3 rounded-xl {{ $selected === 'Snack' ? 'border-secondary bg-secondary' : 'border-primary' }}"
                 id="btn-snack">Snack</button>
         </div>
-        @livewire('foods-table', ['foods' => $menu->sarapan, 'menu' => $menu])
+        @livewire('foods-table', ['foods' => $menu->sarapan, 'menu' => $menu, 'time' => $selected])
     </div>
     @if ($showForm)
         @livewire('food-form', ['menu' => $menu, 'time' => $selected])
@@ -33,8 +33,5 @@
     <div
         class="self-end text-center  text-sm border rounded-xl border-black bg-primary px-3 sm:px-16 py-2 mt-2 text-white">
         {{ $isUserMenu ? 'Simpan' : 'Duplikat' }}
-    </div>
-    <div wire:click="$set('showForm', 'true')" class="cursor-pointer">
-        Tambah makanan
     </div>
 </div>

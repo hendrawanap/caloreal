@@ -20,7 +20,8 @@ class MenuDetails extends Component
     'menuUpdated' => 'changeMenu',
     'closeForm' => 'handleClose',
     'deleteFood' => 'detachFood',
-    'addFood' => 'attachFood'
+    'addFood' => 'attachFood',
+    'showFoodForm'
   ];
   public $isUserMenu;
   public $showForm = false;
@@ -88,6 +89,12 @@ class MenuDetails extends Component
     $this->isUserMenu = $isUserMenu;
     $this->refreshTime();
     $this->updateFoodsTable('Sarapan');
+  }
+
+  public function showFoodForm(Menu $menu, $time)
+  {
+    $this->showForm = true;
+    $this->emit('setFoodForm', $menu, $time);
   }
 
   public function render()

@@ -11,6 +11,7 @@ class FoodForm extends Component
     public $menu;
     public $food;
     public $time;
+    protected $listeners = ['setFoodForm'];
 
     public function addFood($food)
     {
@@ -23,5 +24,11 @@ class FoodForm extends Component
         return view('livewire.food-form', [
             'foods' => Food::all()
         ]);
+    }
+
+    public function setFoodForm(Menu $menu, $time)
+    {
+      $this->menu = $menu;
+      $this->time = $time;
     }
 }
