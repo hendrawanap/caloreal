@@ -46,6 +46,23 @@ class MenuDetails extends Component
     $this->emitSelf('foodsSaved');
   }
 
+  public function duplicateRecMenu()
+  {
+    // dd($this->menu->foods);
+    $menu = Menu::create([
+      'user_id' => auth()->user()->id,
+      'name' => $this->menu->name,
+    ]);
+
+    foreach($this->menu->foods as $food)
+    {
+      $menu->foods()->attach($food->id, ['time' => 'Sarapan', 'quantity' => $food->quantity]);
+    }
+
+    // $this->emitSelf('foodSaved');
+    return redirect(route('profile'));
+  }
+
   public function handleFoodSaved()
   {
     $this->refreshTime();
