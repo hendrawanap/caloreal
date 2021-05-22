@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Food;
 use App\Models\Menu;
 use Livewire\Component;
 
@@ -19,7 +20,7 @@ class FoodsTable extends Component
 
     public function mount()
     {
-      $this->totalCalorie = $this->foods->sum('calorie');
+      $this->totalCalorie = $this->calculateTotalCalorie($this->foods);
     }
 
     public function detachFood($food)
@@ -28,11 +29,18 @@ class FoodsTable extends Component
       $this->emit('menuSaved');
     }
 
-    public function changeFoods($newFoods, $calorie, $isUserMenu)
+    public function changeFoods($newFoods, $isUserMenu)
     {
       $this->foods = $newFoods;
-      $this->totalCalorie = $calorie;
+      $this->totalCalorie = $this->calculateTotalCalorie($newFoods);
       $this->isUserMenu = $isUserMenu;
+    }
+
+    public function calculateTotalCalorie($foods) 
+    {
+      return array_sum(array_map(function($v) {
+        return $v['calorie'];
+      },$foods));
     }
     
     public function render()

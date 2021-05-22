@@ -1,14 +1,30 @@
 @php
-// $sarapan = $menu->sarapan;
-// $makanSiang = $menu->makanSiang;
-// $makanMalam = $menu->makanMalam;
-// $snack = $menu->snack;
+  
+  $foodsArray = $menu->foods->toArray();
+  // dd($foodsArray);
+  $foodsData = array_map(function($v) {
+    return [
+      "id" => $v['id'],
+      "foodname" => $v['foodname'],
+      "calorie" => round($v['pivot']['quantity'] / $v['quantity'] * $v["calorie"]),
+      "quantity" => round($v['pivot']['quantity']),
+      "time" => $v['pivot']['time']
+    ];
+  }, $foodsArray);
+  $sarapan = array_filter($foodsData, function($v) {
+    return $v['time'] == 'Sarapan';
+  });
+  // dd($sarapan);
+  $totalCalorie = array_sum(array_map(function($v) {
+    return $v["calorie"];
+  }, $foodsData));
+
 @endphp
 
 <div class="flex flex-col mt-3">
     <div class="flex justify-between bg-gray-50 rounded-xl px-4 py-5 text-xl font-semibold w-full">
         <div>{{ $menu->name }}</div>
-        <div>{{ $menu->foods->sum('calorie') }} <span class="text-base text-secondary">/ {{ auth()->user()->bmr->bmr }} kkal</span></div>
+        <div>{{ $totalCalorie }} <span class="text-base text-secondary">/ {{ auth()->user()->bmr->bmr }} kkal</span></div>
     </div>
     <div class="bg-gray-50 rounded-xl px-4 py-5 w-full mt-3">
         <div class="flex justify-between gap-x-4 text-sm text-center font-semibold">
@@ -25,7 +41,7 @@
                 class="flex-1 border border-primary py-3 rounded-xl {{ $selected === 'Snack' ? 'border-secondary bg-secondary' : 'border-primary' }}"
                 id="btn-snack">Snack</button>
         </div>
-        @livewire('foods-table', ['foods' => $menu->sarapan, 'menu' => $menu, 'time' => $selected, 'isUserMenu' => $isUserMenu])
+        @livewire('foods-table', ['foods' => $sarapan, 'menu' => $menu, 'time' => $selected, 'isUserMenu' => $isUserMenu])
     </div>
     @if ($showForm)
         @livewire('food-form', ['menu' => $menu, 'time' => $selected])

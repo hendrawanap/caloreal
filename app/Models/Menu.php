@@ -13,26 +13,26 @@ class Menu extends Model
 
     public function foods()
     {
-        return $this->belongsToMany(Food::class)->withPivot('time')->withTimestamps();
+        return $this->belongsToMany(Food::class)->withPivot('time')->withTimestamps()->withPivot('quantity');
     }
 
     public function sarapan()
     {
-      return $this->belongsToMany(Food::class)->wherePivot('time','Sarapan');
+      return $this->belongsToMany(Food::class)->wherePivot('time','Sarapan')->withPivot('quantity');
     }
 
     public function makanSiang()
     {
-      return $this->belongsToMany(Food::class)->wherePivot('time','Makan Siang');
+      return $this->belongsToMany(Food::class)->wherePivot('time','Makan Siang')->withPivot('quantity');
     }
 
     public function makanMalam()
     {
-      return $this->belongsToMany(Food::class)->wherePivot('time','Makan Malam');
+      return $this->belongsToMany(Food::class)->wherePivot('time','Makan Malam')->withPivot('quantity');
     }
 
     public function snack()
     {
-      return $this->belongsToMany(Food::class)->wherePivot('time','Snack');
+      return $this->belongsToMany(Food::class)->wherePivot('time','Snack')->withPivot('quantity');
     }
 }

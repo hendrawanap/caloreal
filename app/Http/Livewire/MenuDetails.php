@@ -35,7 +35,7 @@ class MenuDetails extends Component
 
   public function attachFood($food)
   {
-    $this->menu->foods()->attach($food['id'], ['time' => $this->selected, 'quantity' => 1]);
+    $this->menu->foods()->attach($food['id'], ['time' => $this->selected, 'quantity' => 100]);
     $this->emitSelf('closeForm');
     $this->emitSelf('foodsSaved');
   }
@@ -59,16 +59,33 @@ class MenuDetails extends Component
 
   public function refreshTime()
   {
-    $this->sarapan = $this->menu->sarapan;
-    $this->makanSiang = $this->menu->makanSiang;
-    $this->makanMalam = $this->menu->makanMalam;
-    $this->snack = $this->menu->snack;
+    $foodsData = array_map(function($v) {
+      return [
+        "id" => $v['id'],
+        "foodname" => $v['foodname'],
+        "calorie" => round($v['pivot']['quantity'] / $v['quantity'] * $v["calorie"]),
+        "quantity" => round($v['pivot']['quantity']),
+        "time" => $v['pivot']['time']
+      ];
+    }, $this->menu->foods->toArray());
+    $this->sarapan = array_filter($foodsData, function($v) {
+      return $v['time'] == 'Sarapan';
+    });
+    $this->makanSiang = array_filter($foodsData, function($v) {
+      return $v['time'] == 'Makan Siang';
+    });
+    $this->makanMalam = array_filter($foodsData, function($v) {
+      return $v['time'] == 'Makan Malam';
+    });
+    $this->snack = array_filter($foodsData, function($v) {
+      return $v['time'] == 'Snack';
+    });
   }
 
   public function updateFoodsTable($selected)
   {
     $this->setFoods($selected);
-    $this->emit('foodsUpdated', $this->foods, $this->foods->sum('calorie'), $this->isUserMenu);
+    $this->emit('foodsUpdated', $this->foods, $this->isUserMenu);
   }
 
   public function setFoods($selected)
