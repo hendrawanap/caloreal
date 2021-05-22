@@ -1,5 +1,5 @@
 <div>
-  <form wire:submit.prevent="" class="flex flex-col w-full">
+  <form wire:submit.prevent="setBmr" class="flex flex-col w-full">
     @csrf
     <label for="activity" class="text-primary font-semibold text-lg mb-3">Aktivitas</label>
     <select
@@ -11,7 +11,7 @@
       
     >
     @foreach ($activites as $key => $value)
-      <option value="{{ $key }}">{{ $key }}</option>
+      <option value="{{ $value }}">{{ $key }}</option>
     @endforeach
     </select>
     <label for="target" class="text-primary font-semibold text-lg mt-8 mb-3">Target Berat Badan</label>
