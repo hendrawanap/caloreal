@@ -34,7 +34,7 @@
             <div class="relative px-5 mt-2">
                 <button class="absolute left-0 top-16 material-icons p-2 bg-secondary rounded-full"
                     id="rec-menu-prev">arrow_left</button>
-                <div class="flex overflow-x-auto" id="rec-menu">
+                <div class="flex overflow-x-auto scrollbar-hide" id="rec-menu">
                     @foreach ($recMenus as $recMenu)
                         <div wire:click="setMenu({{ $recMenu }}, {{ 0 }})"
                             class="flex-shrink-0 w-48 h-36 hover:bg-gray-200 mr-2 rounded-xl p-3 cursor-pointer {{ $selected == $recMenu->name ? 'bg-gray-200' : 'bg-gray-50' }}">
