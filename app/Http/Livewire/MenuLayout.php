@@ -30,7 +30,6 @@ class MenuLayout extends Component
   {
     if ($this->userMenus->count() !==0 ) {
       $this->selected = $this->userMenus[0]->name;
-
     }
   }
 
@@ -45,7 +44,8 @@ class MenuLayout extends Component
   {
     $menu = Menu::find($id);
     $menu->delete();
-    $this->emit('menuSaved');
+    // $this->emit('menuSaved');
+    return redirect(route('profile'));
   }
 
   public function handleClose()
