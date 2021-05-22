@@ -22,10 +22,24 @@ class ProfileController extends Controller
     } else {
       $recMenus = null;
     }
-    // dd($recMenus->count());
-    // dd($bmr);
+    
+    if ($bmr) {
+      $bmi = array('value' => $bmr->bmi);
+      if ($bmi['value'] < 17) {
+          $bmi['category'] = 'Sangat Kurus';
+      } elseif ($bmi['value'] >= 17 && $bmi['value'] < 18.4) {
+          $bmi['category'] = 'Kurus Ringan';
+      } elseif ($bmi['value'] >= 18.4 && $bmi['value'] < 25) {
+          $bmi['category'] = 'Normal';
+      } elseif ($bmi['value'] >= 25 && $bmi['value'] < 27) {
+          $bmi['category'] = 'Gemuk Ringan';
+      } else {
+          $bmi['category'] = 'Sangat Gemuk';
+      }
+    }
 
     return view('profile.index', [
+      'bmi' => $bmi,
       'bmr' => $bmr,
       'userMenus' => $userMenus,
       'recMenus' => $recMenus
