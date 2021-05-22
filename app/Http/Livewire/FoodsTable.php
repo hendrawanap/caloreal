@@ -24,6 +24,7 @@ class FoodsTable extends Component
     public function detachFood($food)
     {
       $this->emitUp('deleteFood', $food);
+      $this->emit('menuSaved');
     }
 
     public function changeFoods($newFoods, $calorie)

@@ -16,6 +16,7 @@ class FoodForm extends Component
     public function addFood($food)
     {
         $this->emitUp('addFood', $food);
+        $this->emit('menuSaved');
     }
 
 
