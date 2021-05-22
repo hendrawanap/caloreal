@@ -14,7 +14,7 @@ class CreateFoodMenuTable extends Migration
     public function up()
     {
         Schema::create('food_menu', function (Blueprint $table) {
-            $table->foreignId('food_id')->constrained('foods');
+            $table->foreignId('food_id')->constrained('foods')->onDelete('cascade');
             $table->foreignId('menu_id')->constrained('menus')->onDelete('cascade');
             $table->string('time');
             $table->integer('quantity');
