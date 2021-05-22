@@ -21,7 +21,8 @@ class MenuDetails extends Component
     'closeForm' => 'handleClose',
     'deleteFood' => 'detachFood',
     'addFood' => 'attachFood',
-    'showFoodForm'
+    'showFoodForm',
+    'foodsSaved' => 'handleFoodSaved'
   ];
   public $isUserMenu;
   public $showForm = false;
@@ -36,13 +37,19 @@ class MenuDetails extends Component
   {
     $this->menu->foods()->attach($food['id'], ['time' => $this->selected, 'quantity' => 1]);
     $this->emitSelf('closeForm');
-    $this->emitSelf('menuUpdated', $this->menu, true);
+    $this->emitSelf('foodsSaved');
   }
 
   public function detachFood($food)
   {
     $this->menu->foods()->detach($food);
-    $this->emitSelf('menuUpdated', $this->menu, true);
+    $this->emitSelf('foodsSaved');
+  }
+
+  public function handleFoodSaved()
+  {
+    $this->refreshTime();
+    $this->updateFoodsTable($this->selected);
   }
 
   public function handleClose()

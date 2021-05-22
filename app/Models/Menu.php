@@ -13,7 +13,7 @@ class Menu extends Model
 
     public function foods()
     {
-        return $this->belongsToMany(Food::class)->withPivot('time');
+        return $this->belongsToMany(Food::class)->withPivot('time')->withTimestamps();
     }
 
     public function sarapan()
