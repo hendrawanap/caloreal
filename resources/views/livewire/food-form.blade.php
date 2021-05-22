@@ -10,7 +10,8 @@
           From: "opacity-100"
           To: "opacity-0"
       -->
-        <div wire:click="$emitUp('closeForm')" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+        <div wire:click="$emitUp('closeForm')" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+            aria-hidden="true"></div>
 
         <!-- This element is to trick the browser into centering the modal contents. -->
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
@@ -32,24 +33,38 @@
                     <div
                         class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                         <!-- Heroicon name: outline/exclamation -->
-                        <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                        </svg>
+                        <span class="material-icons">add</span>
                     </div>
-                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                    <div class="mt-3 w-full text-center sm:mt-0 sm:ml-4 sm:text-left">
                         <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
                             Tambah makanan
                         </h3>
-                        <div class="mt-2">
-                            <select class="block w-full pl-3 pr-10 py-2 text-black" name="food" id="food">
+                        {{-- <div class="mt-2">
+                            <select class="form-select mt-1 block w-full">
                                 @foreach ($foods as $food)
                                     <option class="w-12" wire:click="addFood({{ $food }}, {{ $menu }})">
                                         <span>{{ $food->foodname }}</span>
                                     </option>
                                 @endforeach
                             </select>
+                        </div> --}}
+                        <div class="relative inline-block w-full text-gray-700">
+                            <select
+                                class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
+                                placeholder="Regular input">
+                                @foreach ($foods as $food)
+                                    <option wire:click="addFood({{ $food }}, {{ $menu }})">
+                                        <span>{{ $food->foodname }}</span>
+                                    </option>
+                                @endforeach
+                            </select>
+                            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                    <path
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" fill-rule="evenodd"></path>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -26,8 +26,8 @@ class EditMenuForm extends Component
             'name' => $this->name
         ]);
 
-        $this->emitUp('menuSaved');
         $this->emitUp('closeForm');
+        return redirect(route('profile'));
     }
 
     public function render()
