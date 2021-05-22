@@ -10,6 +10,7 @@ class FoodsTable extends Component
     public $foods;
     public $menu;
     public $time;
+    public $isUserMenu;
 
     protected $listeners = [
       'foodsUpdated' => 'changeFoods',
@@ -27,10 +28,11 @@ class FoodsTable extends Component
       $this->emit('menuSaved');
     }
 
-    public function changeFoods($newFoods, $calorie)
+    public function changeFoods($newFoods, $calorie, $isUserMenu)
     {
       $this->foods = $newFoods;
       $this->totalCalorie = $calorie;
+      $this->isUserMenu = $isUserMenu;
     }
     
     public function render()

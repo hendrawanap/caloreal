@@ -68,7 +68,7 @@ class MenuDetails extends Component
   public function updateFoodsTable($selected)
   {
     $this->setFoods($selected);
-    $this->emit('foodsUpdated', $this->foods, $this->foods->sum('calorie'));
+    $this->emit('foodsUpdated', $this->foods, $this->foods->sum('calorie'), $this->isUserMenu);
   }
 
   public function setFoods($selected)
