@@ -12,17 +12,22 @@
                     id="my-menu-prev">arrow_left</button>
                 <div class="flex overflow-x-auto scrollbar-hide" id="my-menu">
                     @foreach ($userMenus as $userMenu)
-                        
-                    <div class="relative">
-                      <div wire:click="destroyMenu({{ $userMenu['id'] }})" class="absolute top-3 right-5 cursor-default flex items-center text-sm"><span class="material-icons">delete</span></div>
-                      <div wire:click="setMenu({{ $userMenu }}, {{ true }})"
-                          class="flex-shrink-0 w-48 h-36 hover:bg-gray-200 mr-2 rounded-xl p-3 cursor-pointer {{ $selected == $userMenu->name ? 'bg-gray-200' : 'bg-gray-50' }}">
-                          <div class="font-semibold text-lg">{{ $userMenu->name }}</div>
-                          @foreach ($userMenu->foods->take(4) as $food)
-                              <div class="ml-3 mt-1 text-sm">{{ $food->foodname }}</div>
-                          @endforeach
-                      </div>
-                    </div>
+
+                        <div class="relative">
+                            <div wire:click="showEditMenu({{ $userMenu->id }})"
+                                class="absolute top-3 right-5 cursor-default flex items-center text-sm"><span
+                                    class="material-icons">edit</span></div>
+                            <div wire:click="destroyMenu({{ $userMenu->id }})"
+                                class="absolute bottom-3 right-5 cursor-default flex items-center text-sm"><span
+                                    class="material-icons">delete</span></div>
+                            <div wire:click="setMenu({{ $userMenu }}, {{ true }})"
+                                class="flex-shrink-0 w-48 h-36 hover:bg-gray-200 mr-2 rounded-xl p-3 cursor-pointer {{ $selected == $userMenu->name ? 'bg-gray-200' : 'bg-gray-50' }}">
+                                <div class="font-semibold text-lg">{{ $userMenu->name }}</div>
+                                @foreach ($userMenu->foods->take(4) as $food)
+                                    <div class="ml-3 mt-1 text-sm">{{ $food->foodname }}</div>
+                                @endforeach
+                            </div>
+                        </div>
                     @endforeach
                     <div wire:click="$set('showForm', 'true')"
                         class="border border-dashed border-gray-500 flex-shrink-0 w-48 h-36 bg-gray-50 hover:bg-gray-100 mr-2 rounded-xl relative">
@@ -56,13 +61,17 @@
     </div>
 
     @if ($userMenus->count() !== 0)
-      @livewire('menu-details', ['menu' => $userMenus[0], 'isUserMenu' => true])
+        @livewire('menu-details', ['menu' => $userMenus[0], 'isUserMenu' => true])
     @elseif ($recMenus->count() !== 0)
-      @livewire('menu-details', ['menu' => $recMenus[0], 'isUserMenu' => false])
+        @livewire('menu-details', ['menu' => $recMenus[0], 'isUserMenu' => false])
     @else
     @endif
 
     @if ($showForm)
         @livewire('menu-form')
+    @endif
+
+    @if ($showEditMenuForm)
+        @livewire('edit-menu-form')
     @endif
 </div>

@@ -12,6 +12,7 @@ class MenuLayout extends Component
   public $menu;
   public $selected;
   public $showForm = false;
+  public $showEditMenuForm = false;
 
   protected $listeners = [
     'closeForm' => 'handleClose',
@@ -48,9 +49,16 @@ class MenuLayout extends Component
     return redirect(route('profile'));
   }
 
+  public function showEditMenu($id)
+  {
+    $this->showEditMenuForm = true;
+    $this->emit('editMenu', $id);
+  }
+
   public function handleClose()
   {
     $this->showForm = false;
+    $this->showEditMenuForm = false;
   }
 
   public function render()
