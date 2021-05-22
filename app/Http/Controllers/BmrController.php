@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 
 class BmrController extends Controller
 {
-    public function index()
-    {
-        return view('bmi.index');
-    }
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
 
+  public function index()
+  {
+    return view('bmr.index');
+  }
 }

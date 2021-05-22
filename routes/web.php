@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BmiController;
 use App\Http\Controllers\BmrController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ProfileController;
@@ -16,7 +17,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/bmi', [BmrController::class, 'index'])->name('bmi.index');
+Route::get('/bmi', [BmiController::class, 'index'])->name('bmi.index');
 
 Route::get('/food', [FoodController::class, 'index'])->name('food.index');
 Route::get('/food/add', 'App\Http\Controllers\FoodController@add');
@@ -26,4 +27,4 @@ Route::post('/food/update', 'App\Http\Controllers\FoodController@update');
 Route::get('/food/delete/{id}', 'App\Http\Controllers\FoodController@delete');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-Route::get('/bmr', function() { return view('bmr.index'); })->name('bmr.index');
+Route::get('/bmr', [BmrController::class, 'index'])->name('bmr.index');
