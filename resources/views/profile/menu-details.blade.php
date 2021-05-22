@@ -8,7 +8,7 @@
 <div class="flex flex-col mt-3">
     <div class="flex justify-between bg-gray-50 rounded-xl px-4 py-5 text-xl font-semibold w-full">
         <div>{{ $menu->name }}</div>
-        <div>{{ $menu->foods->sum('calorie') }} <span class="text-base text-secondary">/ 1700 kkal</span></div>
+        <div>{{ $menu->foods->sum('calorie') }} <span class="text-base text-secondary">/ {{ auth()->user()->bmr->bmr }} kkal</span></div>
     </div>
     <div class="bg-gray-50 rounded-xl px-4 py-5 w-full mt-3">
         <div class="flex justify-between gap-x-4 text-sm text-center font-semibold">
