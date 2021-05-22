@@ -22,7 +22,7 @@ class BmrForm extends Component
   {
     $this->bmr = Bmr::updateOrCreate(
       ['user_id' => auth()->user()->id],
-      ['bmr' => $this->calculateBmr()]
+      ['bmr' => $this->activity * $this->calculateBmr()]
     );
     $this->emit('showBmr', $this->bmr->bmr);
   }
