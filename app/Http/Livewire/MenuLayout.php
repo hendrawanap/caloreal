@@ -15,7 +15,7 @@ class MenuLayout extends Component
 
   protected $listeners = [
     'closeForm' => 'handleClose',
-    'menuSaved' => 'refreshMenus'
+    'menuSaved' => 'refreshMenus',
   ];
   
   public function refreshMenus()
@@ -36,6 +36,13 @@ class MenuLayout extends Component
     $this->menu = $menu;
     $this->selected = $menu->name;
     $this->emit('menuUpdated', $menu, $isUserMenu);
+  }
+
+  public function destroyMenu($id)
+  {
+    $menu = Menu::find($id);
+    $menu->delete();
+    $this->emit('menuSaved');
   }
 
   public function handleClose()
