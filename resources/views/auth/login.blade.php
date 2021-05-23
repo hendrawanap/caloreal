@@ -22,7 +22,6 @@
         value="{{ old('email') }}"
         autocomplete="email"
         placeholder="Email"
-        required
         autofocus
       >
     </div>
@@ -33,13 +32,12 @@
         type="password"
         class="w-full py-2 px-4 rounded-xl border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
         name="password"
-        required
         autocomplete="current-password"
         placeholder="Password"
       >
 
       @error('password')
-      <div>{{ $message }}</div>
+      <div class="text-red-500 text-sm font-base">{{ $message }}</div>
       @enderror
     </div>
 

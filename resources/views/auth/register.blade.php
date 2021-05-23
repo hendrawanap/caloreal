@@ -14,11 +14,10 @@
         value="{{ old('name') }}"
         autocomplete="name"
         placeholder="Nama Lengkap"
-        required
         autofocus
       >
       @error('name')
-          <span class="invalid-feedback" role="alert">
+          <span class="invalid-feedback text-red-500 text-sm font-base" role="alert">
               <strong>{{ $message }}</strong>
           </span>
       @enderror
@@ -27,17 +26,16 @@
     <div class="mt-6">
       <input
         id="email"
-        type="email"
+        type="text"
         class="w-full py-2 px-4 rounded-xl border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
         name="email"
         value="{{ old('email') }}"
         placeholder="Email"
         autocomplete="email"
-        required
       >
 
       @error('email')
-          <span class="invalid-feedback" role="alert">
+          <span class="invalid-feedback text-red-500 text-sm font-base" role="alert">
               <strong>{{ $message }}</strong>
           </span>
       @enderror
@@ -51,11 +49,10 @@
         name="password"
         placeholder="Password"
         autocomplete="new-password"
-        required
       >
 
       @error('password')
-          <span class="invalid-feedback" role="alert">
+          <span class="invalid-feedback text-red-500 text-sm font-base" role="alert">
               <strong>{{ $message }}</strong>
           </span>
       @enderror
@@ -69,7 +66,6 @@
         name="password_confirmation"
         autocomplete="new-password"
         placeholder="Konfirmasi Password"
-        required
       >
     </div>
 
