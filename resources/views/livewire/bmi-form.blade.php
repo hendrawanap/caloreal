@@ -4,7 +4,7 @@
       <div class="text-primary font-semibold text-lg mb-3">Jenis Kelamin</div>
       <div class="flex flex-shrink-0 text-white">
           <label for="male" class="mr-4">
-              <div class="flex flex-col py-2 px-2 bg-gray-50 rounded-xl border border-primary items-center text-primary justify-center sm:px-10">
+              <div class="flex flex-col py-2 px-2 bg-gray-50 cursor-pointer rounded-xl border border-primary items-center text-primary justify-center sm:px-10">
                 <img src="{{ asset('img/boy.png') }}" alt="alt">
                 Pria
               </div>
@@ -20,7 +20,7 @@
           </label>
 
           <label for="female">
-            <div class="flex flex-col py-2 px-2 bg-gray-50 rounded-xl border border-primary items-center text-primary justify-center sm:px-10">
+            <div class="flex flex-col py-2 px-2 bg-gray-50 cursor-pointer rounded-xl border border-primary items-center text-primary justify-center sm:px-10">
               <img src="{{ asset('img/girl.png') }}" alt="alt">
               Wanita
             </div>
@@ -78,7 +78,7 @@
         type="submit"
         name="submit"
         value="Hitung IMT"
-        class="border-2 rounded-2xl border-primary bg-primary px-9 py-2 text-white text-sm mt-10 w-min"
+        class="border-2 cursor-pointer rounded-2xl border-primary bg-primary px-9 py-2 text-white text-sm mt-10 w-min"
       >
   </form>
 </div>

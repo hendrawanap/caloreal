@@ -29,6 +29,6 @@
             </div>
 
         <input type="submit" name="submit" value="Hitung Kalori"
-            class="border-2 rounded-2xl border-primary bg-primary px-9 py-2 text-white text-sm mt-8 w-min">
+            class="border-2 cursor-pointer rounded-2xl border-primary bg-primary px-9 py-2 text-white text-sm mt-8 w-min">
     </form>
 </div>

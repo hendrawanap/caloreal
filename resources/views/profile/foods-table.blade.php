@@ -16,10 +16,9 @@
                     <td class="py-2">{{ $food['calorie'] }} kkal</td>
                     <td class="py-2">
                         @if ($isUserMenu)
-                        {{-- <div class="material-icons sm:hidden cursor-default">more_vert</div> --}}
                         <div class="material-icons">
-                          <span class="cursor-default block sm:inline" wire:click="$emitUp('showFoodForm', {{ $menu }}, '{{ $time }}', {{ true }}, {{ $food['id'] }}, {{ $food['quantity'] }})">edit</span>
-                          <span class="cursor-default block sm:inline" wire:click="detachFood({{ $food['id'] }})">delete</span>
+                          <span class="cursor-pointer block sm:inline" wire:click="$emitUp('showFoodForm', {{ $menu }}, '{{ $time }}', {{ true }}, {{ $food['id'] }}, {{ $food['quantity'] }})">edit</span>
+                          <span class="cursor-pointer block sm:inline" wire:click="detachFood({{ $food['id'] }})">delete</span>
                         </div>
                         @endif
                     </td>
