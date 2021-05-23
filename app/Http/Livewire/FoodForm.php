@@ -9,15 +9,20 @@ use Livewire\Component;
 class FoodForm extends Component
 {
     public $menu;
-    public $foodId = 1;
+    public $foodId;
     public $time;
     public $quantity;
+    public $error;
     protected $listeners = ['setFoodForm'];
 
     public function addFood()
     {
-        $this->emitUp('addFood', $this->foodId, $this->quantity);
-        $this->emit('menuSaved');
+        if ($this->foodId && $this->quantity) {
+          $this->emitUp('addFood', $this->foodId, $this->quantity);
+          $this->emit('menuSaved');
+        } else {
+          $this->error = "Anda belum memasukkan makanan atau kuantitas";  
+        }
     }
 
 

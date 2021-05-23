@@ -36,6 +36,12 @@
                         <span class="material-icons">add</span>
                     </div>
                     <div class="mt-3 w-full text-center sm:mt-0 sm:ml-4 sm:text-left">
+                      @if ($error)
+                      <div wire:model="error" class=" flex text-sm text-gray-700 bg-red-200 p-3 items-center rounded-md mb-4">
+                        <div class="material-icons mr-3">block</div>
+                        <div>{{ $error }}</div>
+                      </div>
+                      @endif
                         <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
                             Tambah makanan
                         </h3>
@@ -53,8 +59,9 @@
                                 class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
                                 placeholder="Regular input"
                                 wire:model="foodId">
+                                <option value="">Pilih Makanan</option>
                                 @foreach ($types as $type)
-                                    <optgroup label="{{ $type }}">
+                                <optgroup label="{{ $type }}">
                                         @foreach ($foods as $food)
                                             @continue($food->type !== $type)
                                             <option value="{{ $food->id }}">
