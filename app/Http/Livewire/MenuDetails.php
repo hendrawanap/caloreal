@@ -135,10 +135,10 @@ class MenuDetails extends Component
     $this->updateFoodsTable('Sarapan');
   }
 
-  public function showFoodForm(Menu $menu, $time)
+  public function showFoodForm(Menu $menu, $time, $isEdit=false, $foodId=0, $quantity=0)
   {
     $this->showForm = true;
-    $this->emit('setFoodForm', $menu, $time);
+    $this->emit('setFoodForm', $menu, $time, $isEdit, $foodId, $quantity);
   }
 
   public function render()

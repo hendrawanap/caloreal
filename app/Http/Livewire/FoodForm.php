@@ -13,6 +13,7 @@ class FoodForm extends Component
     public $time;
     public $quantity;
     public $error;
+    public $isEdit;
     protected $listeners = ['setFoodForm'];
 
     public function addFood()
@@ -35,9 +36,15 @@ class FoodForm extends Component
         ]);
     }
 
-    public function setFoodForm(Menu $menu, $time)
+    public function setFoodForm(Menu $menu, $time, $isEdit=false, $foodId=0, $quantity=0)
     {
       $this->menu = $menu;
       $this->time = $time;
+      $this->isEdit = $isEdit;
+      if ($foodId && $quantity) {
+        $this->foodId = $foodId;
+        $this->quantity = $quantity;
+        // dd("edit");
+      }
     }
 }
