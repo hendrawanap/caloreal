@@ -9,7 +9,7 @@ use Livewire\Component;
 class FoodForm extends Component
 {
     public $menu;
-    public $foodId;
+    public $foodId = 1;
     public $time;
     public $quantity;
     protected $listeners = ['setFoodForm'];
