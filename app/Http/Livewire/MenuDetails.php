@@ -53,21 +53,12 @@ class MenuDetails extends Component
       'name' => $this->menu->name,
     ]);
 
-    foreach($this->sarapan as $food)
+    foreach($this->menu->foods as $food)
     {
-      $menu->foods()->attach($food['id'], ['time' => 'Sarapan', 'quantity' => $food['quantity']]);
-    }
-    foreach($this->makanSiang as $food)
-    {
-      $menu->foods()->attach($food['id'], ['time' => 'Makan Siang', 'quantity' => $food['quantity']]);
-    }
-    foreach($this->makanMalam as $food)
-    {
-      $menu->foods()->attach($food['id'], ['time' => 'Makan Malam', 'quantity' => $food['quantity']]);
-    }
-    foreach($this->snack as $food)
-    {
-      $menu->foods()->attach($food['id'], ['time' => 'Snack', 'quantity' => $food['quantity']]);
+      $menu->foods()->attach($food->id, [
+        'time' => $food->pivot->time,
+        'quantity' => $food->pivot->quantity
+      ]);
     }
 
     return redirect(route('profile'));
