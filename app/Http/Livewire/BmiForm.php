@@ -32,9 +32,9 @@ class BmiForm extends Component
 
         $this->validate([
             'sex' => 'required',
-            'age' => 'required|integer|min:0|max:120',
-            'height' => 'required|integer|min:0|max:200',
-            'weight' => 'required|integer|min:0|max:200',
+            'age' => 'required|integer|min:6|max:120',
+            'height' => 'required|integer|min:80|max:200',
+            'weight' => 'required|integer|min:30|max:200',
         ]);
         
         $bmi = $this->calculateBmi($this->height);
