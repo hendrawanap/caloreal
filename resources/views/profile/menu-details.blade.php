@@ -1,7 +1,6 @@
 @php
   
   $foodsArray = $menu->foods->toArray();
-  // dd($foodsArray);
   $foodsData = array_map(function($v) {
     return [
       "id" => $v['id'],
@@ -14,7 +13,6 @@
   $sarapan = array_filter($foodsData, function($v) {
     return $v['time'] == 'Sarapan';
   });
-  // dd($sarapan);
   $totalCalorie = array_sum(array_map(function($v) {
     return $v["calorie"];
   }, $foodsData));

@@ -13,7 +13,7 @@
 @section('title', 'Daking | Profile')
 
 @section('content')
-    <div class="container mx-auto flex flex-wrap justify-center lg:flex-nowrap mb-8">
+    <div class="container mx-auto flex flex-wrap lg:flex-nowrap mb-8">
         <div class="flex flex-col flex-shrink-0 w-56 mr-5 lg:mb-8">
             <div class="flex flex-col items-center p-4 bg-gray-50 rounded-xl text-primary">
                 <div class="flex w-full items-center">
