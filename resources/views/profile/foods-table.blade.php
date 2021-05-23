@@ -14,10 +14,13 @@
                     <td class="py-2">{{ $food['foodname'] }}</td>
                     <td class="py-2">{{ $food['quantity'] }} gram</td>
                     <td class="py-2">{{ $food['calorie'] }} kkal</td>
-                    <td class="material-icons py-2">
+                    <td class="py-2">
                         @if ($isUserMenu)
-                        <span class="cursor-default" wire:click="$emitUp('showFoodForm', {{ $menu }}, '{{ $time }}', {{ true }}, {{ $food['id'] }}, {{ $food['quantity'] }})">edit</span>
-                        <span class="cursor-default" wire:click="detachFood({{ $food['id'] }})">delete</span>
+                        {{-- <div class="material-icons sm:hidden cursor-default">more_vert</div> --}}
+                        <div class="material-icons">
+                          <span class="cursor-default block sm:inline" wire:click="$emitUp('showFoodForm', {{ $menu }}, '{{ $time }}', {{ true }}, {{ $food['id'] }}, {{ $food['quantity'] }})">edit</span>
+                          <span class="cursor-default block sm:inline" wire:click="detachFood({{ $food['id'] }})">delete</span>
+                        </div>
                         @endif
                     </td>
                 </tr>
@@ -33,8 +36,7 @@
         <tfoot>
             <tr>
                 <th class="text-xl font-semibold">Total Kalori</th>
-                <th></th>
-                <th class="text-xl font-semibold">{{ $totalCalorie }} kkal</th>
+                <th colspan="3" class="text-xl font-semibold text-right">{{ $totalCalorie }} kkal</th>
             </tr>
         </tfoot>
     </table>

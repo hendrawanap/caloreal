@@ -17,6 +17,12 @@ class BmrForm extends Component
   ];
   public $target;
   public $bmr;
+  public $beratIdeal;
+
+  public function mount()
+  { 
+    $this->calculateBeratIdeal();
+  }
 
   public function setBmr()
   {
@@ -36,8 +42,17 @@ class BmrForm extends Component
     return 655 + (9.6 * $user->weight) + (1.8 * $user->height) - (4.7 * $user->age);
   }
 
+  public function calculateBeratIdeal()
+  {
+      $tinggi = auth()->user()->bmr->height;
+      $min = 18.5 * pow($tinggi * 0.01, 2);
+      $max = 25 * pow($tinggi * 0.01, 2);
+      $this->beratIdeal = ['min' => round($min), 'max' => round($max)];
+      
+  }
+
     public function render()
     {
-        return view('livewire.bmr-form');
+      return view('livewire.bmr-form');
     }
 }

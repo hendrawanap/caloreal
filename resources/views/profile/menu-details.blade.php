@@ -27,7 +27,13 @@
         <div>{{ $totalCalorie }} <span class="text-base text-secondary">/ {{ auth()->user()->bmr->bmr }} kkal</span></div>
     </div>
     <div class="bg-gray-50 rounded-xl px-4 py-5 w-full mt-3">
-        <div class="flex justify-between gap-x-4 text-sm text-center font-semibold">
+        <select class="flex sm:hidden" name="" id="">
+          <option wire:click="updateFoodsTable('Sarapan')" value="1">Sarapan</option>
+          <option wire:click="updateFoodsTable('Makan Siang')" value="2">Makan Siang</option>
+          <option wire:click="updateFoodsTable('Makan Malam')" value="3">Makan Malam</option>
+          <option wire:click="updateFoodsTable('Snack')" value="4">Snack</option>
+        </select>
+        <div class="justify-between gap-x-4 text-sm text-center font-semibold hidden sm:flex">
             <button wire:click="updateFoodsTable('Sarapan')"
                 class="flex-1 border py-3 rounded-xl {{ $selected === 'Sarapan' ? 'border-secondary bg-secondary' : 'border-primary' }}"
                 id="btn-sarapan">Sarapan</button>
@@ -41,6 +47,7 @@
                 class="flex-1 border border-primary py-3 rounded-xl {{ $selected === 'Snack' ? 'border-secondary bg-secondary' : 'border-primary' }}"
                 id="btn-snack">Snack</button>
         </div>
+
         @livewire('foods-table', ['foods' => $sarapan, 'menu' => $menu, 'time' => $selected, 'isUserMenu' => $isUserMenu])
     </div>
     @if ($showForm)

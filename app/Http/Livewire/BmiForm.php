@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Bmr;
+use Exception;
 use Livewire\Component;
 
 class BmiForm extends Component
@@ -11,6 +12,17 @@ class BmiForm extends Component
     public $age;
     public $height;
     public $weight;
+
+    public function mount()
+    {
+      $bmr = auth()->user()->bmr;
+      if ($bmr !== null) {
+        $this->sex = $bmr->sex;
+        $this->age = $bmr->age;
+        $this->height = $bmr->height;
+        $this->weight = $bmr->weight;
+      }
+    }
 
     public function store()
     {
@@ -34,7 +46,7 @@ class BmiForm extends Component
                     'age' => $this->age,
                     'height' => $this->height,
                     'weight' => $this->weight,
-                    'bmi' => $this->weight / pow($this->height * 0.01, 2),
+                    'bmi' => $this->calculateBmi($this->weight, $this->height),
                     'bmr' => $this->calculateBMR($this->weight, $this->height, $this->age, $this->sex)
                 ]
             );
@@ -45,11 +57,16 @@ class BmiForm extends Component
             ];
         }
 
-        $this->resetInput();
+        // $this->resetInput();
 
         $this->emit('bmrSaved', $bmr);
     }
-
+    public function calculateBmi($weight, $height)
+    {
+      if ($height == 0) return 0;
+      $bmi = $this->weight / pow($this->height * 0.01, 2);
+      return $bmi;
+    }
     public function calculateBMR($weight, $height, $age, $sex)
     {
         if($sex == 'Male')

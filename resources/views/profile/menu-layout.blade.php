@@ -1,6 +1,6 @@
-<div class="flex flex-1 flex-col text-primary">
-    <div class="flex">
-        <div class="flex flex-1 flex-col max-w-lg mr-12">
+<div class="flex flex-1 flex-col text-primary mt-8 lg:mt-0">
+    <div class="flex flex-wrap max-w-xs sm:max-w-xl xl:flex-nowrap lg:max-w-2xl xl:max-w-4xl">
+        <div class="w-full xl:w-1/2 mr-0 xl:mr-12">
             <div class="flex justify-between">
                 <div class="text-xl font-semibold">List Menu Saya</div>
                 <div wire:loading wire:target="setMenu" class="text-xl font-semibold">
@@ -38,7 +38,7 @@
                     id="my-menu-next">arrow_right</button>
             </div>
         </div>
-        <div class="flex flex-1 flex-col max-w-lg">
+        <div class="w-full mt-4 xl:mt-0 xl:w-1/2">
             <div class="text-xl font-semibold">Rekomendasi Menu</div>
             <div class="relative px-5 mt-2">
                 <button class="absolute left-0 top-16 material-icons p-2 bg-secondary rounded-full"

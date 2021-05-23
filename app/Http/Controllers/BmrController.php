@@ -14,6 +14,11 @@ class BmrController extends Controller
 
   public function index()
   {
-    return view('bmr.index');
+    if (auth()->user()->bmr !== null) {
+      return view('bmr.index');
+    }
+    else {
+      return redirect(route('bmi.index'));
+    }
   }
 }

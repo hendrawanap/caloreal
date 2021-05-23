@@ -10,7 +10,7 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <nav class="sticky top-0 py-6" id="nav-bar">
+    <nav class="sticky z-10 top-0 py-6" id="nav-bar">
       <div class="container mx-auto flex items-center">
         <a href="{{ url()->previous() }}" class="material-icons mr-4 text-4xl text-gray-400">arrow_left</a>
         <a href="{{route('home')}}"><img class="w-32" src="{{ asset('img/caloreal.png') }}" alt=""></a>
