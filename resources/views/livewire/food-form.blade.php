@@ -55,9 +55,7 @@
                                 @foreach ($types as $type)
                                     <optgroup label="{{ $type }}">
                                         @foreach ($foods as $food)
-                                            @if ($food->type !== $type)
-                                                @continue
-                                            @endif
+                                            @continue($food->type !== $type)
                                             <option wire:click="addFood({{ $food }}, {{ $menu }})">
                                                 <span>{{ $food->foodname }}</span>
                                             </option>
