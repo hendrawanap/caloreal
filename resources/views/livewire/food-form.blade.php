@@ -52,10 +52,17 @@
                             <select
                                 class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
                                 placeholder="Regular input">
-                                @foreach ($foods as $food)
-                                    <option wire:click="addFood({{ $food }}, {{ $menu }})">
-                                        <span>{{ $food->foodname }}</span>
-                                    </option>
+                                @foreach ($types as $type)
+                                    <optgroup label="{{ $type }}">
+                                        @foreach ($foods as $food)
+                                            @if ($food->type !== $type)
+                                                @continue
+                                            @endif
+                                            <option wire:click="addFood({{ $food }}, {{ $menu }})">
+                                                <span>{{ $food->foodname }}</span>
+                                            </option>
+                                        @endforeach
+                                    </optgroup>
                                 @endforeach
                             </select>
                             <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">

@@ -23,7 +23,9 @@ class FoodForm extends Component
     public function render()
     {
         return view('livewire.food-form', [
-            'foods' => Food::orderBy('foodname')->get()
+            'foods' => Food::all(),
+            'types' => Food::select('type')->distinct()->pluck('type')->toArray()
+            // User::select('name')->distinct()->pluck('name')->toArray();
         ]);
     }
 
