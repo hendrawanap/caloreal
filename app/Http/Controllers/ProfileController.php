@@ -36,6 +36,8 @@ class ProfileController extends Controller
       } else {
           $bmi['category'] = 'Sangat Gemuk';
       }
+    } else {
+      $bmi = ['value' => 0, 'category' => 'Sangat Kurus'];
     }
 
     return view('profile.index', [
