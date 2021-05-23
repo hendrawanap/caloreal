@@ -1,13 +1,13 @@
 <div class="flex flex-1 flex-col text-primary mt-8 lg:mt-0">
-    <div class="flex flex-wrap max-w-xs sm:max-w-xl xl:flex-nowrap lg:max-w-2xl xl:max-w-4xl">
-        <div class="w-full xl:w-1/2 mr-0 xl:mr-12">
+    <div class="flex flex-wrap xl:flex-nowrap max-w-xs sm:max-w-xl lg:max-w-2xl xl:max-w-4xl 2xl:max-w-5xl">
+        <div class="w-full xl:w-1/2 mr-0 xl:mr-12 2xl:mr-16">
             <div class="flex justify-between">
                 <div class="text-xl font-semibold">List Menu Saya</div>
                 <div wire:loading wire:target="setMenu" class="text-xl font-semibold">
                     Loading...
                 </div>
             </div>
-            <div class="relative px-5 mt-2">
+            <div class="h-36 relative px-5 mt-2">
                 <button class="absolute z-10 left-0 top-16 material-icons p-2 bg-secondary rounded-full "
                     id="my-menu-prev">arrow_left</button>
                 <div class="flex overflow-x-auto scrollbar-hide" id="my-menu">
@@ -40,7 +40,7 @@
         </div>
         <div class="w-full mt-4 xl:mt-0 xl:w-1/2">
             <div class="text-xl font-semibold">Rekomendasi Menu</div>
-            <div class="relative px-5 mt-2">
+            <div class="h-36 relative px-5 mt-2">
                 <button class="absolute left-0 top-16 material-icons p-2 bg-secondary rounded-full"
                     id="rec-menu-prev">arrow_left</button>
                 <div class="flex overflow-x-auto scrollbar-hide" id="rec-menu">

@@ -34,7 +34,7 @@ class BmiResult extends Component
 
     public function calculateBMI($input)
     {
-        $bmi = array('value' => $input['bmi']);
+        $bmi = array('value' => $input);
 
         if ($bmi['value'] < 17) {
             $bmi['category'] = 'Sangat Kurus';

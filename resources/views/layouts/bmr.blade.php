@@ -10,13 +10,13 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <nav class="sticky z-20 top-0 py-6" id="nav-bar">
+    <nav class="sticky z-20 top-0 py-4 bg-primary" id="nav-bar">
       <div class="container mx-auto flex items-center">
-        <a href="{{route('home')}}"><img class="w-28" src="{{ asset('img/caloreal.png') }}" alt=""></a>
+        <a href="{{route('home')}}"><img class="w-28" src="{{ asset('img/caloreal-inv.png') }}" alt=""></a>
       </div>
     </nav>
     
-    <main class="flex-grow">
+    <main class="flex-grow mt-6">
         @yield('content')
     </main>
 

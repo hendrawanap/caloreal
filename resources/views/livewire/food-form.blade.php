@@ -33,7 +33,7 @@
                     <div
                         class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                         <!-- Heroicon name: outline/exclamation -->
-                        <span class="material-icons">add</span>
+                        <span class="material-icons">{{ $isEdit ? 'edit' : 'add'}}</span>
                     </div>
                     <div class="mt-3 w-full text-center sm:mt-0 sm:ml-4 sm:text-left">
                       @if ($error)
@@ -54,7 +54,7 @@
                                 @endforeach
                             </select>
                         </div> --}}
-                        <div class="relative inline-block w-full text-gray-700 mt-2">
+                        <div class="relative inline-block w-full text-gray-700 mt-2 mb-4">
                             <select
                                 class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
                                 placeholder="Regular input"
@@ -79,8 +79,8 @@
                                 </svg>
                             </div>
                         </div>
-                        <label class="text-lg leading-6 font-medium text-gray-900 mt-10" for="quantity">Kuantitas</label>
-                        <input wire:model="quantity" class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline mt-2" name="quantity" id="quantity" type="text">
+                        <label class="text-lg leading-6 font-medium text-gray-900" for="quantity">Kuantitas</label>
+                        <input wire:model="quantity" class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline mt-2" placeholder="(dalam gram)" name="quantity" id="quantity" type="text">
                         <button wire:click="addFood" class="text-center  text-sm border rounded-xl border-black bg-primary px-3 sm:px-9 py-2 mt-6 text-white">{{ $isEdit ? "Edit Makanan" : "Tambah Makanan" }}</button>
                     </div>
                 </div>

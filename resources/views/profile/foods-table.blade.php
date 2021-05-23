@@ -36,7 +36,7 @@
         <tfoot>
             <tr>
                 <th class="text-xl font-semibold">Total Kalori</th>
-                <th colspan="3" class="text-xl font-semibold text-right">{{ $totalCalorie }} kkal</th>
+                <th colspan="3" class="text-xl font-semibold text-right pr-3">{{ $totalCalorie }} kkal</th>
             </tr>
         </tfoot>
     </table>

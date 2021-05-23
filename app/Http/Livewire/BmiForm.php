@@ -15,12 +15,14 @@ class BmiForm extends Component
 
     public function mount()
     {
-      $bmr = auth()->user()->bmr;
-      if ($bmr !== null) {
-        $this->sex = $bmr->sex;
-        $this->age = $bmr->age;
-        $this->height = $bmr->height;
-        $this->weight = $bmr->weight;
+      if (auth()->check()) {
+        $bmr = auth()->user()->bmr;
+        if ($bmr !== null) {
+          $this->sex = $bmr->sex;
+          $this->age = $bmr->age;
+          $this->height = $bmr->height;
+          $this->weight = $bmr->weight;
+        } 
       }
     }
 
@@ -34,7 +36,8 @@ class BmiForm extends Component
             'height' => 'required|integer|max:200',
             'weight' => 'required|integer|max:200',
         ]);
-
+        
+        $bmi = $this->calculateBmi($this->height);
         if (auth()->check()) {
             $bmr = Bmr::updateOrCreate(
                 [
@@ -46,7 +49,7 @@ class BmiForm extends Component
                     'age' => $this->age,
                     'height' => $this->height,
                     'weight' => $this->weight,
-                    'bmi' => $this->calculateBmi($this->weight, $this->height),
+                    'bmi' => $bmi,
                     'bmr' => $this->calculateBMR($this->weight, $this->height, $this->age, $this->sex)
                 ]
             );
@@ -59,9 +62,9 @@ class BmiForm extends Component
 
         // $this->resetInput();
 
-        $this->emit('bmrSaved', $bmr);
+        $this->emit('bmrSaved', $bmi);
     }
-    public function calculateBmi($weight, $height)
+    public function calculateBmi($height)
     {
       if ($height == 0) return 0;
       $bmi = $this->weight / pow($this->height * 0.01, 2);

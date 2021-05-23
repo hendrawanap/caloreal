@@ -12,7 +12,7 @@
 <body class="flex flex-col min-h-screen">
     <nav class="fixed top-0 left-0 right-0 py-4 z-50 transition duration-300" id="nav-bar">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="{{ route('home') }}"><img class="w-32" src="{{ asset('img/caloreal.png') }}" alt=""></a>
+            <a href="{{ route('home') }}"><img class="w-28" src="{{ asset('img/caloreal.png') }}" alt=""></a>
             <ul class="flex">
                 @guest
                 @if (Route::has('login'))
