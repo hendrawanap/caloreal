@@ -2,9 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Food;
 use App\Models\Menu;
-use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 
 class MenuDetails extends Component
@@ -35,16 +33,14 @@ class MenuDetails extends Component
 
   public function attachFood($foodId, $quantity)
   {
-    // dd($quantity)
-    $this->menu->foods()->sync([$foodId => ['time' => $this->selected, 'quantity' => intval($quantity)]],false);
-    // $this->menu->foods()->attach($foodId, ['time' => $this->selected, 'quantity' => intval($quantity)]);
+    $this->menu->foods()->wherePivot('time', $this->selected)->sync([$foodId => ['time' => $this->selected, 'quantity' => intval($quantity)]],false);
     $this->emitSelf('closeForm');
     $this->emitSelf('foodsSaved');
   }
 
-  public function detachFood($food)
+  public function detachFood($foodId)
   {
-    $this->menu->foods()->detach($food);
+    $this->menu->foods()->wherePivot('time', $this->selected)->detach($foodId);
     $this->emitSelf('foodsSaved');
   }
 
