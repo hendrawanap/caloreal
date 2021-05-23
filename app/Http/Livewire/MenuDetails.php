@@ -33,9 +33,10 @@ class MenuDetails extends Component
     $this->refreshTime();
   }
 
-  public function attachFood($food)
+  public function attachFood($foodId, $quantity)
   {
-    $this->menu->foods()->attach($food['id'], ['time' => $this->selected, 'quantity' => 100]);
+    // dd($quantity)
+    $this->menu->foods()->attach($foodId, ['time' => $this->selected, 'quantity' => intval($quantity)]);
     $this->emitSelf('closeForm');
     $this->emitSelf('foodsSaved');
   }

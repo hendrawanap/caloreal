@@ -9,13 +9,14 @@ use Livewire\Component;
 class FoodForm extends Component
 {
     public $menu;
-    public $food;
+    public $foodId;
     public $time;
+    public $quantity;
     protected $listeners = ['setFoodForm'];
 
-    public function addFood($food)
+    public function addFood()
     {
-        $this->emitUp('addFood', $food);
+        $this->emitUp('addFood', $this->foodId, $this->quantity);
         $this->emit('menuSaved');
     }
 

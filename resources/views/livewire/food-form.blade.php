@@ -48,15 +48,16 @@
                                 @endforeach
                             </select>
                         </div> --}}
-                        <div class="relative inline-block w-full text-gray-700">
+                        <div class="relative inline-block w-full text-gray-700 mt-2">
                             <select
                                 class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
-                                placeholder="Regular input">
+                                placeholder="Regular input"
+                                wire:model="foodId">
                                 @foreach ($types as $type)
                                     <optgroup label="{{ $type }}">
                                         @foreach ($foods as $food)
                                             @continue($food->type !== $type)
-                                            <option wire:click="addFood({{ $food }}, {{ $menu }})">
+                                            <option value="{{ $food->id }}">
                                                 <span>{{ $food->foodname }}</span>
                                             </option>
                                         @endforeach
@@ -71,6 +72,9 @@
                                 </svg>
                             </div>
                         </div>
+                        <label class="text-lg leading-6 font-medium text-gray-900 mt-10" for="quantity">Kuantitas</label>
+                        <input wire:model="quantity" class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline mt-2" name="quantity" id="quantity" type="text">
+                        <button wire:click="addFood" class="text-center  text-sm border rounded-xl border-black bg-primary px-3 sm:px-9 py-2 mt-6 text-white">Tambah Makanan</button>
                     </div>
                 </div>
             </div>
