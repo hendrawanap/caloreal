@@ -33,7 +33,7 @@ class BmiForm extends Component
         $this->validate([
             'sex' => 'required',
             'age' => 'required|integer|min:6|max:120',
-            'height' => 'required|integer|min:80|max:200',
+            'height' => 'required|integer|min:50|max:300',
             'weight' => 'required|integer|min:30|max:200',
         ]);
         

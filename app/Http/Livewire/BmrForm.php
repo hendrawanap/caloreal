@@ -44,6 +44,10 @@ class BmrForm extends Component
 
   public function calculateBeratIdeal()
   {
+      $this->validate([
+        'target' => 'required|integer|min:10|max:200'
+      ]);
+
       $tinggi = auth()->user()->bmr->height;
       $min = 18.5 * pow($tinggi * 0.01, 2);
       $max = 25 * pow($tinggi * 0.01, 2);
