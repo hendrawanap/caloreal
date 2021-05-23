@@ -23,7 +23,7 @@ class FoodForm extends Component
     public function render()
     {
         return view('livewire.food-form', [
-            'foods' => Food::all()
+            'foods' => Food::orderBy('foodname')->get()
         ]);
     }
 
