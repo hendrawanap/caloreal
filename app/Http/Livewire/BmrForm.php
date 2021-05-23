@@ -31,6 +31,7 @@ class BmrForm extends Component
       'target' => 'required|integer|min:10|max:200',  
       'activity' => 'required'
     ]);
+    
     $this->bmr = Bmr::updateOrCreate(
       ['user_id' => auth()->user()->id],
       ['bmr' => $this->activity * $this->calculateBmr()]

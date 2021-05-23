@@ -21,6 +21,10 @@ class EditMenuForm extends Component
 
     public function edit()
     {
+        $this->validate([
+            'name' => 'required|max:15'
+        ]);
+        
         $menu = Menu::find($this->menu_id);
         $menu->update([
             'name' => $this->name

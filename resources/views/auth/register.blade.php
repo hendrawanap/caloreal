@@ -17,7 +17,7 @@
         autofocus
       >
       @error('name')
-          <span class="invalid-feedback text-red-500 text-sm font-base" role="alert">
+          <span class="text-red-500 text-sm font-base">
               <strong>{{ $message }}</strong>
           </span>
       @enderror
@@ -35,7 +35,7 @@
       >
 
       @error('email')
-          <span class="invalid-feedback text-red-500 text-sm font-base" role="alert">
+          <span class="text-red-500 text-sm font-base">
               <strong>{{ $message }}</strong>
           </span>
       @enderror
@@ -52,7 +52,7 @@
       >
 
       @error('password')
-          <span class="invalid-feedback text-red-500 text-sm font-base" role="alert">
+          <span class="text-red-500 text-sm font-base">
               <strong>{{ $message }}</strong>
           </span>
       @enderror

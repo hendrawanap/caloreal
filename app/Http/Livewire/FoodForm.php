@@ -18,9 +18,6 @@ class FoodForm extends Component
 
     public function addFood()
     {
-      $this->validate([
-        'quantity' => 'required|integer|min:1|max:500'
-      ]);
         if ($this->foodId && $this->quantity) {
           $this->emitUp('addFood', $this->foodId, $this->quantity);
           $this->emit('menuSaved');
@@ -35,7 +32,6 @@ class FoodForm extends Component
         return view('livewire.food-form', [
             'foods' => Food::all(),
             'types' => Food::select('type')->distinct()->pluck('type')->toArray()
-            // User::select('name')->distinct()->pluck('name')->toArray();
         ]);
     }
 
