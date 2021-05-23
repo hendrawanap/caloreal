@@ -36,7 +36,8 @@ class MenuDetails extends Component
   public function attachFood($foodId, $quantity)
   {
     // dd($quantity)
-    $this->menu->foods()->attach($foodId, ['time' => $this->selected, 'quantity' => intval($quantity)]);
+    $this->menu->foods()->sync([$foodId => ['time' => $this->selected, 'quantity' => intval($quantity)]],false);
+    // $this->menu->foods()->attach($foodId, ['time' => $this->selected, 'quantity' => intval($quantity)]);
     $this->emitSelf('closeForm');
     $this->emitSelf('foodsSaved');
   }
