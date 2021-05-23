@@ -81,6 +81,8 @@
                         </div>
                         <label class="text-lg leading-6 font-medium text-gray-900" for="quantity">Kuantitas</label>
                         <input wire:model="quantity" class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline mt-2" placeholder="(dalam gram)" name="quantity" id="quantity" type="text">
+                        
+                        @error('quantity') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
                         <button wire:click="addFood" class="text-center  text-sm border rounded-xl border-black bg-primary px-3 sm:px-9 py-2 mt-6 text-white">{{ $isEdit ? "Edit Makanan" : "Tambah Makanan" }}</button>
                     </div>
                 </div>

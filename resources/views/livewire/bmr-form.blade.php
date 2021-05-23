@@ -11,6 +11,7 @@
                     <option value="{{ $value }}">{{ $key }}</option>
                 @endforeach
             </select>
+            @error('activity') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
             <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                 <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
                     <path
@@ -23,6 +24,7 @@
         <input wire:model="target" type="text"
             class="w-full py-2 px-4 rounded-lg border border-primary bg-gray-50 placeholder-primary focus:placeholder-opacity-25"
             name="target" id="target" placeholder="(dalam kg)">
+            @error('target') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
             <div class="mt-2">
               <div>Berat badan ideal: {{ $beratIdeal['min'] . ' ~ ' . $beratIdeal['max'].' kg' }}</div>
               <div>Berat badan sekarang: {{ auth()->user()->bmr->weight }} kg</div>

@@ -26,6 +26,11 @@ class BmrForm extends Component
 
   public function setBmr()
   {
+    
+    $this->validate([
+      'target' => 'required|integer|min:10|max:200',  
+      'activity' => 'required'
+    ]);
     $this->bmr = Bmr::updateOrCreate(
       ['user_id' => auth()->user()->id],
       ['bmr' => $this->activity * $this->calculateBmr()]
@@ -44,9 +49,6 @@ class BmrForm extends Component
 
   public function calculateBeratIdeal()
   {
-      $this->validate([
-        'target' => 'required|integer|min:10|max:200'
-      ]);
 
       $tinggi = auth()->user()->bmr->height;
       $min = 18.5 * pow($tinggi * 0.01, 2);
