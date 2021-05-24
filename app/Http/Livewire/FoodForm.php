@@ -18,6 +18,10 @@ class FoodForm extends Component
 
     public function addFood()
     {
+        // $this->validate([
+        //   'quantity' => 'required|integer|min:10:max:2000'
+        // ]);
+
         if ($this->foodId && $this->quantity) {
           $this->emitUp('addFood', $this->foodId, $this->quantity);
           $this->emit('menuSaved');
